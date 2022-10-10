@@ -1,0 +1,37 @@
+* {
+    font-size: 18px;
+    font-family: "Arial";
+}
+
+body{
+    margin: 0;
+}
+
+.navbar {
+    background-color: #394352;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.9); /* nicht mein code*/
+}
+
+.navbar a {
+    display : inline-block;
+    padding: 15px;
+    margin: 0;
+    text-decoration: none;
+    font-size: 26px;
+    color: white;
+    background-color: #394352;
+}
+
+#html:hover{
+    background-color: #FFA500;
+
+}
+
+#css:hover{
+    background-color: #264de4;
+   /* color: darkblue;*/
+}
+
+
