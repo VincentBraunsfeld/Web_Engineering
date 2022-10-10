@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.3. Wireframe with HTML and CSS</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-family: Roboto;
+            max-width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .container {
+            box-sizing: border-box;
+            margin-right: 7.5%;
+            margin-left: 7.5%;
+            width: 85vw;
+            height: 100vh;
+            background-color: white;
+        }
+
+        input, select {
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            column-count: 2;
+            font-size: 18px;
+        }
+
+        td {
+            width: 50%;
+            padding: 5px;
+        }
+
+        td.r {
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body style="background-color: #b2d6d1">
+<h1>Survey From</h1>
+<div class="container">
+    <table>
+        <tr>
+            <td colspan="2" style="text-align: center">Let us know how we can improve freeCodeCamp <br><br></td>
+        </tr>
+        <tr>
+            <td class="r"><label for="name">*Name:</label></td>
+            <td><input id="name" placeholder="Enter you re name"></td>
+        </tr>
+        <tr>
+            <td class="r"><label for="email">*Email:</label></td>
+            <td><input id="email" type="text" placeholder="Enter you re email"></td>
+        </tr>
+        <tr>
+            <td class="r"><label for="age">*Age:</label></td>
+            <td></label><input id="age" type="number" placeholder="Age" min="0" max="120"></td>
+            <br>
+        </tr>
+        <tr>
+            <td class="r"><label for="role">Which option best describe you re current role?</label></td>
+            <td>
+                <select id="role">
+                    <option>student</option>
+                    <option>teacher</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td class="r">
+                <p style="margin-top: 0">*How likely is that you would recommend <br>freeCodeCamp to a friend?</p>
+            </td>
+            <td>
+                <br>
+                <input type="radio" id="d" name="fav_language">
+                <label for="d">Definitely</label><br>
+
+                <input type="radio" id="m" name="fav_language">
+                <label for="m">Maybe</label><br>
+                <input type="radio" id="n" name="fav_language">
+                <label for="n">Not sure</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="r"><label for="op">*What do you like most in FCC?</label></td>
+            <td>
+                <select id="op">
+                    <option>select an option</option>
+                    <option>option1</option>
+                    <option>option2</option>
+                    <option>option3</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td class="r">
+                <p style="margin-top: 0">
+                    Things that should be improved in the future <br> (Check all that apply):
+                </p>
+            </td>
+            <td>
+                <br>
+                <input type="checkbox" id="front" name="fav_language">
+                <label for="front">Front-End Projects</label> <br>
+                <input type="checkbox" id="back" name="fav_language">
+                <label for="back">Back-End Projects</label><br>
+                <input type="checkbox" id="data" name="fav_language">
+                <label for="data">Data Visualization</label>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

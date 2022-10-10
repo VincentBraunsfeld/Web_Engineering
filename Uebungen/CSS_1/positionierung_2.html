@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.2. CSS Positionierung_2</title>
+    <style>
+        img {
+            width: 95vw;
+            hight: 70vh;
+            margin: 5px;
+            visibility: hidden;
+        }
+        input:checked ~ div > img {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+<h1>Übung 2.2</h1>
+<input type="checkbox">
+<label> hide and show via checkbox</label>
+<br>
+<div style="border: 1px solid black;display: inline-block;" ;>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Hochschule_Bonn-Rhein-Sieg_Wolfgang_G%C3%B6ddertz_Induktion.jpg"
+         alt="picture of the H-BRS">
+</div>
+</body>
+</html>
