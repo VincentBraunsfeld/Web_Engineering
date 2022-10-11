@@ -4,13 +4,240 @@
     <meta charset="UTF-8">
     <title>CSS</title>
     <link rel="stylesheet" href="../css_files/navbar.css">
+    <link rel="stylesheet" href="../css_files/p2_CSS.css">
 </head>
 <body>
-    <div class="navbar">
-        <a href="../index.html">HOME</a>
-        <a id="html" href="p1_HTML.html">HTML</a>
-        <a id="css" href="#">CSS</a>
+<div class="navbar">
+    <a href="../index.html">HOME</a>
+    <a id="html" href="p1_HTML.html">HTML</a>
+    <a id="css" href="#">CSS</a>
+</div>
+<div class="main">
+    <h1>CSS Übung</h1>
+    <hr>
+    <div class="task">
+        <h2>CSS Selektoren und CSS Farben</h2>
+        <p>Berechnen Sie die Spezifität folgender CSS-Selektoren:</p>
+        <ol>
+            <li class="li li_red"><code>div div div:focus .inner</code></li>
+            <li class="li li_red"><code>h1 + div.main</code></li>
+            <li class="li li_red"><code>div a:link[href*='h-brs']</code></li>
+            <li class="li li_red"><code>nav > a:hover::before</code></li>
+            <li class="li li_red"><code>ul#primary-nav li.active</code></li>
+        </ol>
+        <p>Lösung:</p>
+        <ol>
+            <li class="li li_blue"><code>0 2 3</code></li>
+            <li class="li li_blue"><code>0 1 2</code></li>
+            <li class="li li_blue"><code>0 2 2 </code></li>
+            <li class="li li_blue"><code> 0 1 3</code></li>
+            <li class="li li_blue"><code>1 1 2</code></li>
+        </ol>
+        <p>Rechnen Sie folgende RGB-Werte in HSL-Werte um:</p>
+        <ol>
+            <li class="li li_red"><code>#ffffff</code></li>
+            <li class="li li_red"><code>#000</code></li>
+            <li class="li li_red"><code>#ab0978</code></li>
+            <li class="li li_red"><code>rgb(127,255,33)</code></li>
+            <li class="li li_red"><code>rgba(255,127,33,0.8)</code></li>
+        </ol>
+        <p>Lösung:</p>
+        <ol>
+            <li class="li li_blue"><code>hsl(0, 0%, 100%)</code></li>
+            <li class="li li_blue"><code> hsl(0, 0%, 0%)</code></li>
+            <li class="li li_blue"><code>hsl(319, 90%, 35%)</code></li>
+            <li class="li li_blue"><code>hsl(95, 100%, 56%)</code></li>
+            <li class="li li_blue"><code>hsla(25, 100%, 56%, 0.8)</code></li>
+        </ol>
     </div>
+    <div class="task">
+        <h2>CSS-Positionierung</h2>
+        <p>Bauen Sie das dynamische Verhalten in den folgenden beiden Videos exakt nach:</p>
+        <ul>
+            <li class="li"><a href="https://www.youtube.com/watch?v=PE3POxjDspo">sticky</a></li>
+            <li class="li"><a href="https://www.youtube.com/watch?v=HVmnv3k4__E">checkbox</a></li>
+        </ul>
+        <p>Arbeiten Sie in beiden Fällen nur mit HTML und CSS, ohne JavaScript.</p>
+        <hr>
+        <p>Code for sticky:</p>
+        <xmp>
+            <style>
+                h1 {
+                    position: sticky;
+                    background-color: rgba(255, 255, 255, 0.84);
+                    border: 1px solid black;
+                    top: 0;
+                    padding: 20px;
+                }
+
+                p {
+                    background-color: #dcd2d2;
+                    font-size: 25px;
+                }
+            </style>
+        </xmp>
+        <a class="solution" href="../tasks/CSS_1/pos_1.html">Show</a>
+        <hr>
+        <p>Code for checkbox:</p>
+        <xmp>
+            <style>
+                img {
+                    width: 95vw;
+                    hight: 70vh;
+                    margin: 5px;
+                    visibility: hidden;
+                }
+
+                input:checked ~ div > img {
+                    visibility: visible;
+                }
+
+                div {
+                    border: 1px solid black;
+                    display: inline-block;
+                }
+            </style>
+        </xmp>
+        <a class="solution" href="../tasks/CSS_1/pos_2.html">Show</a>
+    </div>
+    <div class="task">
+        <h2>Wireframe mit HTML und CSS</h2>
+        <p>Gegeben ist folgendes HTML-Wireframe:</p>
+        <ul>
+            <li class="li"><a href="https://kaul.inf.h-brs.de/ccm/we/ws22/resources/img/assets/survey.png">HTML-Wireframe</a></li>
+        </ul>
+        <p>Mit welchem HTML- und CSS-Code kann man
+            diesen Wireframe exakt nachbilden? Schreiben Sie Ihren CSS-Code direkt in die HTML-Datei.</p>
+        <hr>
+        <p>Wireframe Code:</p>
+        <xmp>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>2.3. Wireframe with HTML and CSS</title>
+                <style>
+                    h1 {
+                        text-align: center;
+                        font-family: Roboto;
+                        max-width: 100%;
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+
+                    .container {
+                        box-sizing: border-box;
+                        margin-right: 7.5%;
+                        margin-left: 7.5%;
+                        width: 85vw;
+                        height: 100vh;
+                        background-color: white;
+                    }
+
+                    input, select {
+                        margin-top: 10px;
+                    }
+
+                    table {
+                        width: 100%;
+                        column-count: 2;
+                        font-size: 18px;
+                    }
+
+                    td {
+                        width: 50%;
+                        padding: 5px;
+                    }
+
+                    td.r {
+                        text-align: right;
+                    }
+
+                </style>
+            </head>
+            <body style="background-color: #b2d6d1">
+            <h1>Survey From</h1>
+            <div class="container">
+                <table>
+                    <tr>
+                        <td colspan="2" style="text-align: center">Let us know how we can improve freeCodeCamp <br><br></td>
+                    </tr>
+                    <tr>
+                        <td class="r"><label for="name">*Name:</label></td>
+                        <td><input id="name" placeholder="Enter you re name"></td>
+                    </tr>
+                    <tr>
+                        <td class="r"><label for="email">*Email:</label></td>
+                        <td><input id="email" type="text" placeholder="Enter you re email"></td>
+                    </tr>
+                    <tr>
+                        <td class="r"><label for="age">*Age:</label></td>
+                        <td></label><input id="age" type="number" placeholder="Age" min="0" max="120"></td>
+                        <br>
+                    </tr>
+                    <tr>
+                        <td class="r"><label for="role">Which option best describe you re current role?</label></td>
+                        <td>
+                            <select id="role">
+                                <option>student</option>
+                                <option>teacher</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td class="r">
+                            <p style="margin-top: 0">*How likely is that you would recommend <br>freeCodeCamp to a friend?</p>
+                        </td>
+                        <td>
+                            <br>
+                            <input type="radio" id="d" name="fav_language">
+                            <label for="d">Definitely</label><br>
+
+                            <input type="radio" id="m" name="fav_language">
+                            <label for="m">Maybe</label><br>
+                            <input type="radio" id="n" name="fav_language">
+                            <label for="n">Not sure</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="r"><label for="op">*What do you like most in FCC?</label></td>
+                        <td>
+                            <select id="op">
+                                <option>select an option</option>
+                                <option>option1</option>
+                                <option>option2</option>
+                                <option>option3</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td class="r">
+                            <p style="margin-top: 0">
+                                Things that should be improved in the future <br> (Check all that apply):
+                            </p>
+                        </td>
+                        <td>
+                            <br>
+                            <input type="checkbox" id="front" name="fav_language">
+                            <label for="front">Front-End Projects</label> <br>
+                            <input type="checkbox" id="back" name="fav_language">
+                            <label for="back">Back-End Projects</label><br>
+                            <input type="checkbox" id="data" name="fav_language">
+                            <label for="data">Data Visualization</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            </body>
+            </html>
+        </xmp>
+        <a class="solution" href="../tasks/CSS_1/wireframe.html">Show</a>
+        <hr>
+        <p><b>Frage:</b> Was war in der Lösung dieser Aufgabe die größte Schwierigkeit und wie haben Sie diese gelöst?</p>
+        <p><b>Antwort:</b> Die Elemente richtig anzuordnen. Zuerst habe ich versucht mithfile von zwei div Elementen den Content in zwei hälften zu spalten,
+            indem ich sie mit hilfe von float nebeneinander platziert habe. Das hat leider nicht gut geklappt. Am Schluss habe ich die Aufgabe mit einer Tabelle gelöst.</p>
+
+    </div>
+</div>
+
 
 </body>
 </html>
