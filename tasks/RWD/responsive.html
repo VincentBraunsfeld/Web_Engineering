@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive.Grid</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      font-family: Verdana, sans-serif;
+    }
+
+    body{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 7% 8% 66% 19%;
+      grid-template-areas: "nav nav" "header header" "left right" "footer footer";
+      height: 100vh;
+      margin: 0;
+    }
+
+    .nav{
+      grid-area: nav;
+      background-color: #373636;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header{
+      grid-area: header;
+      background-color: #ebeae6;
+      display: flex;
+      justify-content: center;
+      align-items: end;
+    }
+
+    .left{
+      grid-area: left;
+      background-color: #ebeae6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .right{
+      grid-area: right;
+      background-color: #ebeae6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .footer{
+      grid-area: footer;
+      background-color: #061825;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav > a{
+       color:white;
+       text-decoration: none;
+       margin: 10px;
+    }
+
+    .nav > a:hover{
+      text-decoration: underline;
+    }
+
+    .header span{
+      font-size: 30px;
+
+    }
+
+    .left img{
+      height: 80%;
+      width: auto;
+      border-radius: 10px;
+      border: 1px solid black;
+    }
+
+    button{
+      background-color: orange;
+      border: none;
+      border-radius: 5px;
+      color: white;
+    }
+
+    .right button{
+      width: 35%;
+      height: 5%;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .footer button{
+      width: 30%;
+      padding: 10px;
+    }
+
+    .footer span{
+      color: white;
+      margin-top: 20px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="">The book series</a>
+    <a href="">Testimonials</a>
+    <a href="">The Author</a>
+    <a href="">Free resources</a>
+  </div>
+  <div class="header">
+    <span><b>You dont know JavaScript</b></span>
+  </div>
+  <div class="left">
+    <img src="https://kaul.inf.h-brs.de/we/assets/img/landing-img.png" alt="">
+  </div>
+  <div class="right">
+    <p>Don't just drift through JavaScript</p>
+    <p>Understand how JavaScript works</p>
+    <p>Start you re journey through the bumpy side of JavaScript</p>
+    <button>COPY YOUR CODE NOW</button>
+  </div>
+  <div class="footer">
+    <span>The first ebook in the book serious is absolutely free.</span>
+    <button>FIND OUT MORE ABOUT THIS OFFER</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile-First</title>
+    <style>
+        body {
+            display: grid;
+            margin: 0;
+            grid-template-rows: 20% 20% 100% 20%;
+            grid-template-areas:"r" "g" "b" "p";
+            height : 100vh;
+        }
+        #red{
+            background-color: red;
+            grid-area: r;
+        }
+        #green{
+            background-color: greenyellow;
+            grid-area: g;
+        }
+        #pink{
+            background-color: deeppink;
+            grid-area: p;
+        }
+
+        #blue{
+            background-color: #264de4;
+            grid-area: b;
+        }
+
+        @media screen and (min-width: 300px){
+            body{
+                grid-template-columns: 20% 80%;
+                grid-template-rows: 20% 80% 20%;
+                grid-template-areas: "r r" "g b" "p p"
+            }
+        }
+        @media screen and (min-width: 600px){
+            body {
+                grid-template-columns: 20% 60% 20%;
+                grid-template-rows: 20% 80%;
+                grid-template-areas: "r r r" "g b p"
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="red"></div>
+    <div id="green"></div>
+    <div id="pink"></div>
+    <div id="blue"></div>
+</body>
+</html>
