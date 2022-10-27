@@ -18,9 +18,7 @@ hr{
     color: gray;
 }
 
-.li {
-    margin:8px;
-}
+
 
 .li > code{
     border-radius: 5px;

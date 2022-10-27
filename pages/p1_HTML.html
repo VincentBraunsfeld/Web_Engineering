@@ -13,9 +13,9 @@
 
     <nav class="navigator" id="navi">
         <ul>
-            <li><a href="" class="active">Startseite</a></li>
+            <li><a href="../index.html" class="active">Startseite</a></li>
             <li><a href="" class="html">HTML</a></li>
-            <li><a href="" class="css">CSS</a></li>
+            <li><a href="p2_CSS.html" class="css">CSS</a></li>
             <li><a href="" class="js">JS</a></li>
             <li><a href="" class="php">PHP</a></li>
         </ul>
@@ -42,112 +42,155 @@
     </aside>
     <main>
         <h1>HTML Übung</h1>
+        <hr>
         <div class="task">
             <h2>Erfolgsprinzipien des WWW</h2>
             <p>
                 Mit welchen fachlichen Argumenten wurde das WWW-Proposal von TBL abgelehnt?
             </p>
-            <p>
-                Fehlende Integration
-                Hat noch einige Probleme
-                Broken links
-                Texte ohne definierte Semantik
+            <label for="lösung1">Lösung</label>
+            <input type="checkbox" id="lösung1" checked/>
+            <div class="solution-box">
+                <p>
+                    Fehlende Integration
+                    Hat noch einige Probleme
+                    Broken links
+                    Texte ohne definierte Semantik
 
-                <br>
-            </p>
+                </p>
+            </div>
+
             <p>
-                <b>2. Was sind die fachlichen Argumente, warum das WWW dennoch ein Erfolg wurde?</b>
+                Was sind die fachlichen Argumente, warum das WWW dennoch ein Erfolg wurde?
             </p>
+            <label for="lösung2">Lösung</label>
+            <input type="checkbox" id="lösung2" checked/>
+            <div class="solution-box">
             <p>
                 Weltweit eindeutige Identifikation URI
             </p>
-            <p><b>3. Was wäre der Preis für die garantierte Verhinderung von “broken links”?</b></p>
+            </div>
+
+            <p>Was wäre der Preis für die garantierte Verhinderung von “broken links”?</p>
+            <label for="lösung3">Lösung</label>
+            <input type="checkbox" id="lösung3" checked/>
+            <div class="solution-box">
             <p>Es müssten mehr Ressourcen zur Verfügung gestellt werden</p>
+            </div>
         </div>
-        <br>
+        <hr>
         <div class="task">
-            <h3>1.2. HTTP</h3>
-            <p><b>1. Sie bekommen im Browser den HTTP Status Code 200. Was bedeutet das?</b></p>
-            <p>
-            <ul>
-                <li>Request wurde erfolgreich bearbeitet</li>
-            </ul>
+            <h2>HTTP</h2>
+            <p>Sie bekommen im Browser den HTTP Status Code 200. Was bedeutet das?</p>
+            <label for="lösung2.1">Lösung</label>
+            <input type="checkbox" id="lösung2.1" checked/>
+            <div class="solution-box">
+                <p>
+            Request wurde erfolgreich bearbeitet
+
             </p>
-            <p><b>2. Sie bekommen im Browser den HTTP Status Code 301. Was hat das zu bedeuten?</b></p>
+             </div>
+            <p>Sie bekommen im Browser den HTTP Status Code 301. Was hat das zu bedeuten?</p>
+            <label for="lösung2.2">Lösung</label>
+            <input type="checkbox" id="lösung2.2" checked/>
+            <div class="solution-box">
             <p>
-            <ul>
-                <li>Der Server ist nicht merh unter dieser Adresse erreichbar</li>
-            </ul>
+            Der Server ist nicht merh unter dieser Adresse erreichbar
+
             </p>
-            <p><b>3. Sie bekommen im Browser den HTTP Status Code 400. Was hat das zu bedeuten?
-                Was können Sie dagegen tun?</b></p>
+            </div>
+            <p>Sie bekommen im Browser den HTTP Status Code 400. Was hat das zu bedeuten?
+                Was können Sie dagegen tun</p>
+            <label for="lösung2.3">Lösung</label>
+            <input type="checkbox" id="lösung2.3" checked/>
+            <div class="solution-box">
             <p>
-            <ul>
-                <li>Der 400 Bad Request Error ist ein HTTP-Response-Statuscode. die anzeigt, dass der
+            Der 400 Bad Request Error ist ein HTTP-Response-Statuscode. die anzeigt, dass der
                     Server die vom Client gesendete Anforderung aufgrund falscher Syntax, ungültigem Request-Nachrichten-Rahmen
                     oder irreführendem Request-Routing nicht verarbeiten (verstehen) konnte.
                     Lösung: Eingaabe ändern
-                </li>
-            </ul>
+
+
             </p>
-            <p><b>4. Sie bekommen im Browser den HTTP Status Code 403. Was hat das zu bedeuten?
-                Was können Sie dagegen tun?</b></p>
+            </div>
+            <p>Sie bekommen im Browser den HTTP Status Code 403. Was hat das zu bedeuten?
+                Was können Sie dagegen tun?</p>
+            <label for="lösung2.4">Lösung</label>
+            <input type="checkbox" id="lösung2.4" checked/>
+            <div class="solution-box">
             <p>
-            <ul>
-                <li>Der Zugriff auf die angeforderte Ressource ist verboten. Der Server hat die Anfrage verstanden,
+            Der Zugriff auf die angeforderte Ressource ist verboten. Der Server hat die Anfrage verstanden,
                     wird sie aber nicht erfüllen. Lösungsansatz: Cache löschen
-                </li>
-            </ul>
+
             </p>
+            </div>
         </div>
-        <br>
+        <hr>
         <div class="task">
-            <h2>1.3. HTML-Literatur lesen und Fragen beantworten</h2>
-            <p><b>1. Was ist HTML?</b></p>
+            <h2>HTML-Literatur lesen und Fragen beantworten</h2>
+
+            <p>Was ist HTML?</p>
+            <label for="lösung3.1">Lösung</label>
+            <input type="checkbox" id="lösung3.1" checked/>
+            <div class="solution-box">
             <p>
-            <ul>
-                <li>HTML steht für HyperText Markup Language.
+            HTML steht für HyperText Markup Language.
                     Es handelt sich um eine markup-Sprache zur Programmierung von Websites.
                     HTML beschreibt die Struktur einer Website.
                     Es besteht aus Elementen, die wiederum dem Browser spezifizieren,
                     wie eine Website angezeigt werden soll.
-                </li>
-            </ul>
+
             </p>
-            <p><b>2. Wie kann man eine geschachtelte geordnete Liste der Schachtelungstiefe 3 erzeugen?</b></p>
+            </div>
+
+            <p>Wie kann man eine geschachtelte geordnete Liste der Schachtelungstiefe 3 erzeugen?</p>
+            <label for="lösung3.2">Lösung</label>
+            <input type="checkbox" id="lösung3.2" checked/>
+            <div class="solution-box">
             <p>indem man ol benutzt für geordnete listen </p>
-            <p><b>3. Wie ist eine HTML-Tabelle aufgebaut?</b></p>
+            </div>
+
+            <p>Wie ist eine HTML-Tabelle aufgebaut?</p>
+            <label for="lösung3.3">Lösung</label>
+            <input type="checkbox" id="lösung3.3" checked/>
+            <div class="solution-box">
             <p>
-            <ul>
-                <li></li>
-            </ul>
+                Antwort
             </p>
-            <p><b>4. Welche Konventionen sollte man bei Pfaden und Dateinamen beachten?</b></p>
+            </div>
+
+            <p>Welche Konventionen sollte man bei Pfaden und Dateinamen beachten?</p>
+            <label for="lösung3.4">Lösung</label>
+            <input type="checkbox" id="lösung3.4" checked/>
+            <div class="solution-box">
             <p>
-            <ul>
-                <li></li>
-            </ul>
+            Antwort
             </p>
-            <p><b>5. Wie baut man in HTML ein Menü?</b></p>
-            <p>
-            <ul>
-                <li></li>
-            </ul>
-            </p>
-            <p><b>6. Welche Attribute sollte man bei Bildern wie verwenden?</b></p>
-            <p>
-            <ul>
-                <li>alt falls das Bild nicht mehr angezeigt werden kann wird dafür
-                    ein Text der das Bild repäsentiert stehen
-                </li>
-            </ul>
-            </p>
-            <br>
+            </div>
+
+            <p>Wie baut man in HTML ein Menü?</p>
+            <label for="lösung3.5">Lösung</label>
+            <input type="checkbox" id="lösung3.5" checked/>
+            <div class="solution-box">
+                <p>
+                    Antwort
+                </p>
+            </div>
+
+            <p>Welche Attribute sollte man bei Bildern wie verwenden?</p>
+            <label for="lösung3.6">Lösung</label>
+            <input type="checkbox" id="lösung3.6" checked/>
+            <div class="solution-box">
+                <p>
+                    Antwort
+                </p>
+            </div>
+
         </div>
-        <br>
+        <hr>
         <div class="task">
-            <h3>1.4. HTML Wireframe</h3>
-            <a href="../tasks/HTML/investors_of_the_web.html">Lösung</a>
+            <h2>HTML Wireframe</h2>
+            <a class="show_solution" href="../tasks/HTML/investors_of_the_web.html">Lösung</a>
         </div>
     </main>
     <article></article>

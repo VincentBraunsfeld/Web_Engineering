@@ -13,3 +13,86 @@ div.task{
     padding: 10px;
     margin-top: 15px;
 }
+
+.solution-box{
+    border-radius: 25px;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,1);
+}
+
+label {
+    position: relative;
+    padding: 5px;
+    border-radius: 15px;
+    border: 5px #66bd66;
+    color: #66bd66;
+    cursor: pointer;
+}
+label:hover{
+    padding: 7px;
+}
+input {
+    display: none;
+}
+
+input[type=checkbox]:checked + div {
+    transition: 0.2s;
+    display : none;
+}
+
+.li > code{
+    border-radius: 5px;
+    padding:3px;
+    display: inline;
+}
+
+.li_red  code {
+    color: #d54a4a;
+    background-color: #efd1db;
+}
+
+.li_blue code {
+    color: #4e7bd2;
+    background-color: #aec8fa;
+}
+.li a{
+    text-decoration: none;
+}
+
+.li a{
+    color: #129385;
+}
+.li  a:hover{
+    text-decoration: underline;
+    color: #22b093;
+}
+
+code{
+    font-family: "Source Code Pro";
+}
+
+xmp{
+    background-color: #394352;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    font-family: "Arial Narrow";
+    color: white;
+}
+
+.show_solution{
+    text-align: center;
+    display: block;
+    background-color: #5e71b9;
+    color: aliceblue;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.show_solution:hover{
+    font-size: 20px;
+    padding: 15px;
+}
