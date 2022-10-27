@@ -33,7 +33,7 @@ hr{
     background-color: #efd1db;
 }
 
-.li_blue > code {
+.li_blue code {
     color: #4e7bd2;
     background-color: #aec8fa;
 }
@@ -62,7 +62,7 @@ xmp{
     color: white;
 }
 
-.solution{
+.show_solution{
     text-align: center;
     display: block;
     background-color: #5e71b9;
@@ -73,7 +73,7 @@ xmp{
     text-decoration: none;
 }
 
-.solution:hover{
+.show_solution:hover{
     font-size: 20px;
     padding: 15px;
 }

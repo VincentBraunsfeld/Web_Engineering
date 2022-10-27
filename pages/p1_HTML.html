@@ -4,134 +4,159 @@
     <meta charset="UTF-8">
     <title>HTML</title>
     <link rel="stylesheet" href="../css_files/layout.css">
+    <link rel="stylesheet" href="../css_files/task_style.css">
+    <script src="../js_files/hamburger.js" defer></script>
 </head>
 <body>
 <header>
-    <div id="logo">HOME</div>
-    <nav id="navigator">
-        <a id="html" href="">HTML</a>
-        <a id="css" href="">CSS</a>
-        <a id="rwd" href="">RWD</a>
-    </nav>
-    <div id="login_out">logout</div>
-</header>
-<aside></aside>
-<main>
-    <h1>HTML</h1>
-    <h1>Übung 1</h1>
-    <a href="../index.html">HOME</a>
-    <div>
-        <h3>1.1. Fachliche Argumentation über Erfolgsprinzipien des WWW</h3>
-        <p>
-            <b>1. Mit welchen fachlichen Argumenten wurde das WWW-Proposal von TBL abgelehnt?</b>
-        </p>
-        <p>
-            Fehlende Integration
-            Hat noch einige Probleme
-            Broken links
-            Texte ohne definierte Semantik
+    <div class="logo">vbraun<span style="color:#fa0000">2</span>s</div>
 
-            <br>
-        </p>
-        <p>
-            <b>2. Was sind die fachlichen Argumente, warum das WWW dennoch ein Erfolg wurde?</b>
-        </p>
-        <p>
-            Weltweit eindeutige Identifikation URI
-        </p>
-        <p><b>3. Was wäre der Preis für die garantierte Verhinderung von “broken links”?</b></p>
-        <p>Es müssten mehr Ressourcen zur Verfügung gestellt werden</p>
+    <nav class="navigator" id="navi">
+        <ul>
+            <li><a href="" class="active">Startseite</a></li>
+            <li><a href="" class="html">HTML</a></li>
+            <li><a href="" class="css">CSS</a></li>
+            <li><a href="" class="js">JS</a></li>
+            <li><a href="" class="php">PHP</a></li>
+        </ul>
+    </nav >
+    <div class="right">
+        <div class="hamburger" id="ham">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="login_out">logout</div>
     </div>
-    <br>
-    <div>
-        <h3>1.2. HTTP</h3>
-        <p><b>1. Sie bekommen im Browser den HTTP Status Code 200. Was bedeutet das?</b></p>
-        <p>
+
+</header>
+<content>
+    <aside>
         <ul>
-            <li>Request wurde erfolgreich bearbeitet</li>
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
         </ul>
-        </p>
-        <p><b>2. Sie bekommen im Browser den HTTP Status Code 301. Was hat das zu bedeuten?</b></p>
-        <p>
-        <ul>
-            <li>Der Server ist nicht merh unter dieser Adresse erreichbar</li>
-        </ul>
-        </p>
-        <p><b>3. Sie bekommen im Browser den HTTP Status Code 400. Was hat das zu bedeuten?
-            Was können Sie dagegen tun?</b></p>
-        <p>
-        <ul>
-            <li>Der 400 Bad Request Error ist ein HTTP-Response-Statuscode. die anzeigt, dass der
-                Server die vom Client gesendete Anforderung aufgrund falscher Syntax, ungültigem Request-Nachrichten-Rahmen
-                oder irreführendem Request-Routing nicht verarbeiten (verstehen) konnte.
-                Lösung: Eingaabe ändern
-            </li>
-        </ul>
-        </p>
-        <p><b>4. Sie bekommen im Browser den HTTP Status Code 403. Was hat das zu bedeuten?
-            Was können Sie dagegen tun?</b></p>
-        <p>
-        <ul>
-            <li>Der Zugriff auf die angeforderte Ressource ist verboten. Der Server hat die Anfrage verstanden,
-                wird sie aber nicht erfüllen. Lösungsansatz: Cache löschen
-            </li>
-        </ul>
-        </p>
-    </div>
-    <br>
-    <div>
-        <h3>1.3. HTML-Literatur lesen und Fragen beantworten</h3>
-        <p><b>1. Was ist HTML?</b></p>
-        <p>
-        <ul>
-            <li>HTML steht für HyperText Markup Language.
-                Es handelt sich um eine markup-Sprache zur Programmierung von Websites.
-                HTML beschreibt die Struktur einer Website.
-                Es besteht aus Elementen, die wiederum dem Browser spezifizieren,
-                wie eine Website angezeigt werden soll.
-            </li>
-        </ul>
-        </p>
-        <p><b>2. Wie kann man eine geschachtelte geordnete Liste der Schachtelungstiefe 3 erzeugen?</b></p>
-        <p>indem man ol benutzt für geordnete listen </p>
-        <p><b>3. Wie ist eine HTML-Tabelle aufgebaut?</b></p>
-        <p>
-        <ul>
-            <li></li>
-        </ul>
-        </p>
-        <p><b>4. Welche Konventionen sollte man bei Pfaden und Dateinamen beachten?</b></p>
-        <p>
-        <ul>
-            <li></li>
-        </ul>
-        </p>
-        <p><b>5. Wie baut man in HTML ein Menü?</b></p>
-        <p>
-        <ul>
-            <li></li>
-        </ul>
-        </p>
-        <p><b>6. Welche Attribute sollte man bei Bildern wie verwenden?</b></p>
-        <p>
-        <ul>
-            <li>alt falls das Bild nicht mehr angezeigt werden kann wird dafür
-                ein Text der das Bild repäsentiert stehen
-            </li>
-        </ul>
-        </p>
+    </aside>
+    <main>
+        <h1>HTML Übung</h1>
+        <div class="task">
+            <h2>Erfolgsprinzipien des WWW</h2>
+            <p>
+                Mit welchen fachlichen Argumenten wurde das WWW-Proposal von TBL abgelehnt?
+            </p>
+            <p>
+                Fehlende Integration
+                Hat noch einige Probleme
+                Broken links
+                Texte ohne definierte Semantik
+
+                <br>
+            </p>
+            <p>
+                <b>2. Was sind die fachlichen Argumente, warum das WWW dennoch ein Erfolg wurde?</b>
+            </p>
+            <p>
+                Weltweit eindeutige Identifikation URI
+            </p>
+            <p><b>3. Was wäre der Preis für die garantierte Verhinderung von “broken links”?</b></p>
+            <p>Es müssten mehr Ressourcen zur Verfügung gestellt werden</p>
+        </div>
         <br>
-    </div>
-    <br>
-    <div>
-        <h3>1.4. HTML Wireframe</h3>
-        <a href="../tasks/HTML/investors_of_the_web.html">Lösung</a>
-    </div>
-</main>
-<article></article>
+        <div class="task">
+            <h3>1.2. HTTP</h3>
+            <p><b>1. Sie bekommen im Browser den HTTP Status Code 200. Was bedeutet das?</b></p>
+            <p>
+            <ul>
+                <li>Request wurde erfolgreich bearbeitet</li>
+            </ul>
+            </p>
+            <p><b>2. Sie bekommen im Browser den HTTP Status Code 301. Was hat das zu bedeuten?</b></p>
+            <p>
+            <ul>
+                <li>Der Server ist nicht merh unter dieser Adresse erreichbar</li>
+            </ul>
+            </p>
+            <p><b>3. Sie bekommen im Browser den HTTP Status Code 400. Was hat das zu bedeuten?
+                Was können Sie dagegen tun?</b></p>
+            <p>
+            <ul>
+                <li>Der 400 Bad Request Error ist ein HTTP-Response-Statuscode. die anzeigt, dass der
+                    Server die vom Client gesendete Anforderung aufgrund falscher Syntax, ungültigem Request-Nachrichten-Rahmen
+                    oder irreführendem Request-Routing nicht verarbeiten (verstehen) konnte.
+                    Lösung: Eingaabe ändern
+                </li>
+            </ul>
+            </p>
+            <p><b>4. Sie bekommen im Browser den HTTP Status Code 403. Was hat das zu bedeuten?
+                Was können Sie dagegen tun?</b></p>
+            <p>
+            <ul>
+                <li>Der Zugriff auf die angeforderte Ressource ist verboten. Der Server hat die Anfrage verstanden,
+                    wird sie aber nicht erfüllen. Lösungsansatz: Cache löschen
+                </li>
+            </ul>
+            </p>
+        </div>
+        <br>
+        <div class="task">
+            <h2>1.3. HTML-Literatur lesen und Fragen beantworten</h2>
+            <p><b>1. Was ist HTML?</b></p>
+            <p>
+            <ul>
+                <li>HTML steht für HyperText Markup Language.
+                    Es handelt sich um eine markup-Sprache zur Programmierung von Websites.
+                    HTML beschreibt die Struktur einer Website.
+                    Es besteht aus Elementen, die wiederum dem Browser spezifizieren,
+                    wie eine Website angezeigt werden soll.
+                </li>
+            </ul>
+            </p>
+            <p><b>2. Wie kann man eine geschachtelte geordnete Liste der Schachtelungstiefe 3 erzeugen?</b></p>
+            <p>indem man ol benutzt für geordnete listen </p>
+            <p><b>3. Wie ist eine HTML-Tabelle aufgebaut?</b></p>
+            <p>
+            <ul>
+                <li></li>
+            </ul>
+            </p>
+            <p><b>4. Welche Konventionen sollte man bei Pfaden und Dateinamen beachten?</b></p>
+            <p>
+            <ul>
+                <li></li>
+            </ul>
+            </p>
+            <p><b>5. Wie baut man in HTML ein Menü?</b></p>
+            <p>
+            <ul>
+                <li></li>
+            </ul>
+            </p>
+            <p><b>6. Welche Attribute sollte man bei Bildern wie verwenden?</b></p>
+            <p>
+            <ul>
+                <li>alt falls das Bild nicht mehr angezeigt werden kann wird dafür
+                    ein Text der das Bild repäsentiert stehen
+                </li>
+            </ul>
+            </p>
+            <br>
+        </div>
+        <br>
+        <div class="task">
+            <h3>1.4. HTML Wireframe</h3>
+            <a href="../tasks/HTML/investors_of_the_web.html">Lösung</a>
+        </div>
+    </main>
+    <article></article>
+</content>
 <footer>
 
 </footer>
+
+
 
 
 </body>

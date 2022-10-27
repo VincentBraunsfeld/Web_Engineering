@@ -4,20 +4,44 @@
     <meta charset="UTF-8">
     <title>Main</title>
     <link rel="stylesheet" href="css_files/layout.css">
+    <script src="js_files/hamburger.js" defer></script>
 </head>
 <body>
     <header>
-        <div id="logo">HOME</div>
-        <nav id="navigator">
-            <a id="html" href="">HTML</a>
-            <a id="css" href="">CSS</a>
-            <a id="rwd" href="">RWD</a>
-        </nav>
-        <div id="login_out">logout</div>
+        <div class="logo">vbraun<span style="color:#fa0000">2</span>s</div>
+
+        <nav class="navigator" id="navi">
+            <ul>
+                <li><a href="" class="active">Startseite</a></li>
+                <li><a href="" class="html">HTML</a></li>
+                <li><a href="" class="css">CSS</a></li>
+                <li><a href="" class="js">JS</a></li>
+                <li><a href="" class="php">PHP</a></li>
+            </ul>
+        </nav >
+        <div class="right">
+            <div class="hamburger" id="ham">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="login_out">logout</div>
+        </div>
+
     </header>
-    <aside></aside>
+    <content>
+    <aside>
+        <ul>
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+            <li>text</li>
+        </ul>
+    </aside>
     <main></main>
     <article></article>
+    </content>
     <footer>
 
     </footer>
