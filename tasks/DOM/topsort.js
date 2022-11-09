@@ -39,13 +39,45 @@ function del(node, nodes) {  // delete node in all lists
     });
 }
 
-const list = document.getElementById("VorrangRelationen");
-const result = document.createElement("p");
-console.log(result);
+let l=[];
+let list_str = "";
+const add_btn = document.getElementById("add_btn");
+const create_btn = document.getElementById("create_btn");
+const list = document.getElementById("list");
+const input = document.getElementById("input");
+const result = document.getElementById("result");
+const delete_btn = document.getElementById("delete_btn");
 
-console.log(array)
-//result.textContent = topSort(array);
-list.value = "";
+
+add_btn.addEventListener('click', ()=>{
+
+    result.textContent = "";
+    let temp = input.value.split(',');
+    let e1 = temp[0].substring(1,temp[0].length);
+    let e2 = temp[1].substring(0,temp[1].length-1);
+    l.push([e1,e2]);
+    if( list_str.length === 0){
+        list_str = `{(${e1},${e2})}`;
+    }
+    else{
+        list_str = list_str.substring(0,list_str.length-1) + ',' + `(${e1},${e2})` + '}';
+    }
+    list.textContent = list_str;
+    input.value = '';
+
+
+
+});
+
+create_btn.addEventListener('click', ()=>{
+    result.textContent = "["+topSort(l)+"]";
+});
+
+delete_btn.addEventListener('click', ()=>{
+    list_str = "";
+    list.textContent = "{leer}";
+    result.textContent = "";
+})
 /*
 let x = [["unterhose", "hose"], ["socken", "schuhe"], ["hose", "mantel"], ["unterhemd", "pulli"], ["pulli", "mantel"], ["hose", "schuhe"]];
 

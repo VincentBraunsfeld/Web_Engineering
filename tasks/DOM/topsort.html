@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="topsort.js.js" defer></script>
+    <script src="topsort.js" defer></script>
+    <style>
+        *{
+            font-family: Arial;
+        }
+    </style>
 </head>
 <body>
 <span>
-
-    <input id="VorrangRelationen">
-    <button id="add">Erstellen</button>
+    <h2>Topsort</h2>
+    <span>
+    <input id="input" placeholder="(x,y)">
+    <button id="add_btn">hinzufügen</button>
+      <button id="delete_btn">löschen</button>
+        </span>
+    <br>
+    <br>
+    <div id="list">{leer}</div>
+    <br>
+    <button id="create_btn">sortieren</button>
+    <br>
+    <br>
+    <div id="result"></div>
 </span>
 </body>
 </html>
