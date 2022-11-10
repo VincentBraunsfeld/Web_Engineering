@@ -27,16 +27,10 @@ class Vorrang{
         return results;
     }
 
-    [Symbol.iterator]() {
-        const result = this.topSort();
-        let i = 0;
-        return {
-            next() {
-                return {
-                    value: result[i++],
-                    done: i > result.length
-                }
-            }
+    *gen(){
+        let result = this.topSort();
+        for(const ele of result){
+            yield ele;
         }
     }
 }
@@ -47,7 +41,6 @@ const studentenLeben = new Vorrang( [
     [ "studieren", "prüfen" ]
 ] )
 
-for(const next of studentenLeben){
+for(const next of studentenLeben.gen()){
     console.log(next);
 }
-
