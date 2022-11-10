@@ -1,8 +1,5 @@
-
 const input = document.getElementById("input");
-
 input.addEventListener('keyup', () => {input.style.background = check(input.value) ? 'green' : 'red'});
-
 
 function check(value) {
     let openBrackets = [];
@@ -17,12 +14,11 @@ function check(value) {
             return false;
         }
     }
-    if(openBrackets.length > 0) return false
-    return true;
+    return openBrackets.length === 0 ? true : false;
 }
 
 //console.log('([)]');
 // console.assert(true, '()');
 // console.assert(true,'{[()]}');
 // console.assert(true, '[((){[{}]})[]]')
-// console.assert(true, '([)]')
+// console.assert(false, '([)]')
