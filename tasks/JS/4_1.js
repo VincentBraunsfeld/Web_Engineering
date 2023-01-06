@@ -30,6 +30,4 @@ function applyf( bin_f ){
     }
 }
 
-var x = applyf(mul);
 
-console.log(x(4)(9));
