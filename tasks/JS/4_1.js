@@ -1,5 +1,15 @@
-function identity( a ) {
-    return a;
+const input_identity = document.getElementById("identity");
+input_identity.addEventListener("input", function( event ){
+    document.getElementById('a').textContent = 'f('+this.value+')';
+});
+
+
+
+function a( ) {
+    const input = document.getElementById("identity").value;
+    function identity( input ){
+        return input;
+    }
 }
 
 function identity_function( a ) {

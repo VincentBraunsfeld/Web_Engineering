@@ -82,6 +82,7 @@ content{
 
 aside{
     grid-area: aside;
+    position: fixed;
     display: flex;
     justify-content: center;
     font-size: 1.3rem;
@@ -212,7 +213,29 @@ footer{
 @media screen and (max-width: 400px){
     content{
         grid-template-columns: 1fr;
-        grid-template-rows: 40px 1fr;
+        grid-template-rows: 1fr;
         grid-template-areas: "aside" "main";
     }
+
+    aside{
+        grid-area: aside;
+        position: static;
+        display: flex;
+        justify-content: center;
+        font-size: 1.3rem;
+        width: 100%;
+    }
+
+    aside ul{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    aside ul li{
+        display: inline-block;
+        padding: 5px;
+        list-style: none;
+    }
+
 }
