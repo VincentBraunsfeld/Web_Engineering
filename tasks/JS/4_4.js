@@ -41,4 +41,3 @@ function del(node, nodes) {  // delete node in all lists
 
 let x = [["unterhose", "hose"], ["socken", "schuhe"], ["hose", "mantel"], ["unterhemd", "pulli"], ["pulli", "mantel"], ["hose", "schuhe"]];
 
-console.log(topSort(x));

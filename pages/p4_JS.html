@@ -8,7 +8,12 @@
     <script src="../js_files/hamburger.js" defer></script>
     <script src="../js_files/scrollToTopBtn.js" defer></script>
     <script src="../tasks/JS/4_1.js" defer></script>
-    
+    <script src="../tasks/JS/4_2.js" defer></script>
+    <script src="../tasks/JS/4_3.js" defer></script>
+    <script src="../tasks/DOM/topsort.js" defer></script>
+    <script src="../tasks/DOM/performance.js" defer></script>
+    <script src="../tasks/DOM/redner.js" defer></script>
+
 </head>
 <body>
 <header>
@@ -21,7 +26,7 @@
             <li><a href="p2_CSS.html" class="css">CSS</a></li>
             <li><a href="" class="js">JS</a></li>
         </ul>
-    </nav >
+    </nav>
     <div class="right">
         <div class="hamburger" id="ham">
             <div class="line"></div>
@@ -43,13 +48,153 @@
         </ul>
     </aside>
     <main>
-        <div class="task">
+       <!-- <div id="JS">
+            <div id="4.1">
             <h2>4.1 Funktionen</h2>
-            <h3>4.1.1 identity</h3>
+            <div id="4.1.1">
+            <h3>4.1.1 identity()</h3>
+            <p>identity() ist ein Funktion, die ein Argument als Parameter entgegen nimmt und diesen als Ergebnis zurück
+                gibt.</p>
+            <input type="text" id="identity" placeholder="try it out">
+            <button id="btn1">Ergebnis</button>
+            <p id="p1"> identity( )</p>
         </div>
-        <input type="text" id="identity" placeholder="x">
-        <button id="addButton">Hinzufügen</button>
-        <p id="a"></p>
+            <div id="4.1.2">
+            <h3>4.1.2 identity_function()</h3>
+            <p>identity_function() ist ein Funktion, die ein Argument als Parameter entgegen nimmt und eine Funktion
+                zurück gibt, die dieses Argument zurück gibt.</p>
+            <span id="id_span">
+                <input type="text" id="id_function_input" placeholder="try it out">
+                <button id="id_function_btn">ausführen</button>
+            </span>
+        </div>
+            <div id="4.1.3">
+            <h3>4.1.3 add() mul()</h3>
+            <p>add() ist die Additions-Funktion</p>
+            <span id="add">
+                add(
+                <input id="add_input1" type="number">
+                )
+                (
+                <input id="add_input2" type="number">
+                )
+                <button id="addBtn">Ergebnis</button>
+                <span id="add_span"></span>
+            </span>
+            <p>mul() ist die Multiplikations-Funktion</p>
+            <span id="mul">
+                mul(
+                <input id="mul_input1" type="number">
+                )
+                (
+                <input id="mul_input2" type="number">
+                )
+                <button id="mulBtn">Ergebnis</button>
+                <span id="mul_span"></span>
+            </span>
+        </div>
+            <div id="4.1.4">
+            <h3>4.1.4 addf()</h3>
+            <span id="addf_span">
+                <input type="text" id="addf_function_input" placeholder="try it out">
+                <button id="addf_function_btn">ausführen</button>
+            </span>
+        </div>
+            <div id="4.1.5">
+            <h3>applyf()</h3>
+            <span id="span_applyf">
+                applyf(
+                <select id="select_applyf">
+                    <option value="add">add</option>
+                    <option value="mul">mul</option>
+                </select>
+                )
+                (<input type="number" id="input1_applyf">)
+                (<input type="number" id="input2_applyf">)
+                <button id="btn_applyf">Ergebnis</button>
+            </span>
+        </div>
+        </div>
+            <div id="4.2">
+            <h2>4.2. Objekte</h2>
+        </div>
+            <div id="4.3">
+            <h2>4.3. Fibonacci</h2>
+            <span id="fib_span">
+                <input type="number" id="fib_input">
+                <button id="fib_button">Ergebnis</button>
+            </span>
+            <table id="fib_table">
+                <tr>
+                    <td>number</td>
+                    <td>fib</td>
+                </tr>
+                    <td>0</td>
+                    <td>0</td>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </table>
+
+        </div>
+            <div id="4.4">
+            <h2>4.4. Topsort</h2>
+            <span>
+                <input id="input" placeholder="(x,y)">
+                <button id="add_btn">hinzufügen</button>
+                <button id="delete_btn">löschen</button>
+            </span>
+            <br>
+            <br>
+            <div id="list">{leer}</div>
+            <br>
+            <button id="create_btn">sortieren</button>
+            <br>
+            <br>
+            <div id="result"></div>
+        </div>
+        </div> -->
+
+        <div id="DOM">
+            <div id="5.1">
+                <h2>5.1. Performanz-Messungen von DOM-Operationen</h2>
+                <div>
+                    <input id="performance_input">
+                    <button id="performance_button">Add</button>
+                </div>
+                <br>
+                <table>
+                    <tr>
+                        <th>innerHTML</th>
+                        <td id="innerHTMLResult"></td>
+                    </tr>
+                    <tr>
+                        <th>innerText</th>
+                        <td id="innerTextResult"></td>
+                    </tr>
+                    <tr>
+                        <th>textContent</th>
+                        <td id="textContentResult"></td>
+                    </tr>
+                    <tr>
+                        <th>outerHTML</th>
+                        <td id="outerHTMLResult"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="5.2">
+                <h2>5.2. Rednerliste mit Zeitmessung</h2>
+                <span>Neuer Redner:
+                    <input type="text" id="speaker_input">
+                    <button id="speaker_button">Hinzufügen</button>
+                </span>
+                <ul id="speaker_list">
+
+                </ul>
+            </div>
+        </div>
+
 
     </main>
     <article></article>
@@ -59,6 +204,6 @@
 <footer>
 
 </footer>
-<button id="scrollToTopBtn" onclick="scrollToTop()"> ↑ </button>
+<button id="scrollToTopBtn" onclick="scrollToTop()"> ↑</button>
 </body>
 </html>

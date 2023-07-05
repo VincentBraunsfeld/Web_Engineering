@@ -77,6 +77,7 @@ delete_btn.addEventListener('click', ()=>{
     list_str = "";
     list.textContent = "{leer}";
     result.textContent = "";
+    l = [];
 })
 /*
 let x = [["unterhose", "hose"], ["socken", "schuhe"], ["hose", "mantel"], ["unterhemd", "pulli"], ["pulli", "mantel"], ["hose", "schuhe"]];

@@ -1,20 +1,20 @@
-const button = document.getElementById("addButton");
-const input = document.getElementById("input");
-const liste = document.getElementById("speaker_list");
+const speaker_button = document.getElementById("speaker_button");
+const speaker_input = document.getElementById("speaker_input");
+const speaker_list = document.getElementById("speaker_list");
 
 
-button.addEventListener("click", ()=> {
-    addRedner(input.value);
-    input.value = '';
+speaker_button.addEventListener("click", ()=> {
+    addRedner(speaker_input.value);
+    speaker_input.value = '';
 })
 
-function addRedner(rednername) {
+function addRedner(speaker_name) {
 
     let seconds = 0;
     let minutes = 0;
     let hours = 0;
 
-    liste.querySelectorAll('li').forEach(li => {
+    speaker_list.querySelectorAll('li').forEach(li => {
         li.setAttribute('data-running', '0')
         li.querySelectorAll('button').forEach((btn) => btn.innerHTML = 'Start!')
     });
@@ -23,14 +23,14 @@ function addRedner(rednername) {
     listItem.setAttribute('data-running', '1');
 
     const btn = document.createElement('button');
-    btn.innerHTML = 'Stopp!';
+    btn.innerHTML = 'Stop!';
 
     btn.addEventListener('click', ()=> {
         if (listItem.getAttribute('data-running') == '0') {
-            liste.querySelectorAll('li').forEach(li => li.setAttribute('data-running', '0'));
+            speaker_list.querySelectorAll('li').forEach(li => li.setAttribute('data-running', '0'));
             listItem.setAttribute('data-running', '1');
-            liste.querySelectorAll('button').forEach((btn) => btn.innerHTML = 'Start!');
-            btn.innerHTML = 'Stopp!';
+            speaker_list.querySelectorAll('button').forEach((btn) => btn.innerHTML = 'Start!');
+            btn.innerHTML = 'Stop!';
         } else {
             listItem.setAttribute('data-running', '0');
             btn.innerHTML = 'Start!';
@@ -39,9 +39,9 @@ function addRedner(rednername) {
 
 
 
-    liste.appendChild(listItem);
+    speaker_list.appendChild(listItem);
 
-    let content = rednername + " 0" + hours + ":0" + minutes + ":0" + seconds + "  ";
+    let content = speaker_name + " 0" + hours + ":0" + minutes + ":0" + seconds + "  ";
 
     listItem.innerHTML = content;
     listItem.appendChild(btn);
@@ -78,7 +78,7 @@ function addRedner(rednername) {
                 hours = '0' + hours;
             }
 
-            content = rednername + " " + hours + ":" + minutes + ":" + seconds + "   ";
+            content = speaker_name + " " + hours + ":" + minutes + ":" + seconds + "   ";
 
             listItem.innerHTML = content;
             listItem.appendChild(btn);
