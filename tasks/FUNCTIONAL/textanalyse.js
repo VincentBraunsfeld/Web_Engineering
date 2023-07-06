@@ -1983,7 +1983,7 @@ function helper(arr) {
     let i = 0
     while (i < 3) {
 
-        let temp = arr.filter(obj =>  !res.includes(obj))
+        const temp = arr.filter(obj =>  !res.includes(obj))
             .reduce((a, b) => Math.max(a, Object.values(b)[0]), 0);
 
         res.push(arr.filter(obj => Object.values(obj)[0] === temp)[0]);
