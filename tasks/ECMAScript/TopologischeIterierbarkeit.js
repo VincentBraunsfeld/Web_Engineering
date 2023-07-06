@@ -1,7 +1,13 @@
-class Vorrang{
+const iterator_input = document.getElementById("iterator_input");
+const iterator_button = document.getElementById("iterator_button");
+
+
+
+class Vorrang {
     constructor(array) {
         this.array = array;
     }
+
     topSort() {
         const results = [];
 
@@ -41,13 +47,16 @@ class Vorrang{
     }
 }
 
-const studentenLeben = new Vorrang( [
-    [ "schlafen", "studieren" ],
-    [ "essen", "studieren" ],
-    [ "studieren", "prüfen" ]
-] )
-
-for(const next of studentenLeben){
+const studentenLeben = new Vorrang([
+    ["schlafen", "studieren"],
+    ["essen", "studieren"],
+    ["studieren", "prüfen"]
+])
+const resul = ["schlafen", "essen", "studieren", "prüfen"];
+let counter = 0
+for (const next of studentenLeben) {
     console.log(next);
 }
+
+
 

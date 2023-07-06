@@ -1,5 +1,5 @@
-const input = document.getElementById("input");
-input.addEventListener('keyup', () => {input.style.background = check(input.value) ? 'green' : 'red'});
+const brackets_input = document.getElementById("brackets_input");
+brackets_input.addEventListener('keyup', () => {brackets_input.style.background = check(brackets_input.value) ? 'green' : 'red'});
 
 function check(value) {
     let openBrackets = [];
@@ -17,8 +17,8 @@ function check(value) {
     return openBrackets.length === 0 ? true : false;
 }
 
-//console.log('([)]');
-// console.assert(true, '()');
-// console.assert(true,'{[()]}');
-// console.assert(true, '[((){[{}]})[]]')
-// console.assert(false, '([)]')
+
+console.assert(true, '()');
+console.assert(true,'{[()]}');
+console.assert(true, '[((){[{}]})[]]')
+console.assert(false, '([)]')
