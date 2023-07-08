@@ -121,6 +121,7 @@ table {
     width: 50%;
     margin-top: 10px ;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 table th, table td {

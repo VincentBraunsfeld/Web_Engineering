@@ -23,6 +23,7 @@ function addRedner(speaker_name) {
     listItem.setAttribute('data-running', '1');
 
     const btn = document.createElement('button');
+    btn.classList.add('custom-button');
     btn.innerHTML = 'Stop!';
 
     btn.addEventListener('click', ()=> {

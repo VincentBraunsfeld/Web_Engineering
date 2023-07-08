@@ -57,530 +57,545 @@
         </ul>
     </aside>
     <main>
-        <div id="JS">
-            <h1>JavaScript</h1>
-            <hr>
-            <div id="4.1" class="task">
-                <h2>4.1 Funktionen</h2>
-                <hr>
-                <div id="4.1.1">
-                    <h3>4.1.1 identity()</h3>
-                    <p>Schreiben Sie eine Funktion <code class="red-code">identity()</code>, die ein Argument als
-                        Parameter entgegen nimmt und dieses als Ergebnis zurück gibt.</p>
-                    <input type="text" id="identity" placeholder="try it out" class="custom-input">
-                    <button id="btn1" class="custom-button">Ergebnis</button>
-                    <p id="p1" class="result"> identity( )</p>
-                </div>
-               <pre>
-                   <code>
-const input_identity = document.getElementById("identity");
-const p_identity = document.getElementById('p1');
-const button_identity = document.getElementById('btn1');
-const span_identity = document.createElement('span');
-
-button_identity.addEventListener('click', () => {
-    let result = identity(input_identity.value);
-    span_identity.textContent = ` = ${result}`;
-    p_identity.innerHTML += span_identity.outerHTML;
-    input_identity.value = '';
-});
-
-input_identity.addEventListener('input', function (event) {
-    p_identity.textContent = 'identity( ' + this.value + ' )';
-});
-
-function identity(input) {
-    return input;
-}
-                   </code>
-               </pre>
-                <hr>
-                <div id="4.1.2">
-                    <h3>4.1.2 identity_function()</h3>
-                    <p>Schreiben Sie eine Funktion <code class="red-code">identity_function()</code>, die ein Argument
-                        als Parameter entgegen nimmt und eine Funktion zurück gibt, die dieses Argument zurück gibt.</p>
-                    <span id="id_span" class="custom-span">
-                 <input type="text" id="id_function_input" class="custom-input" placeholder="try it out">
-                 <button id="id_function_btn" class="custom-button">ausführen</button>
-             </span>
-                </div>
-                <pre>
-                    <code>
-const id_input = document.getElementById('id_function_input');
-const id_button = document.getElementById('id_function_btn');
-const id_span = document.getElementById('id_span');
-const p_test = document.createElement('p');
-p_test.classList.add('result');
-
-id_button.addEventListener('click', () => {
-    const x = identity_function(id_input.value);
-    const button_execute = document.createElement('button');
-    button_execute.textContent = 'ausführen';
-    button_execute.classList.add('custom-button');
-
-    button_execute.addEventListener('click', () => {
-        p_test.innerHTML = `${x()}`;
-    });
-
-    p_test.innerHTML = `${x}`;
-    p_test.appendChild(button_execute);
-    id_span.appendChild(p_test);
-});
-
-function identity_function(param) {
-    return function () {
-        return param;
-    }
-}
-
-                    </code>
-                </pre>
-                <hr>
-                <div id="4.1.3">
-                    <h3>4.1.3 add() mul()</h3>
-                    <p>Schreiben Sie zwei binäre Funktionen <code class="red-code">add</code>und <code class="red-code">mul</code>,
-                        die Summe und Produkt berechnen.</p>
-                    <span id="add">
-                 add(
-                 <input id="add_input1" type="number" class="custom-input">
-                 )
-                 (
-                 <input id="add_input2" type="number" class="custom-input">
-                 )
-                 <button id="addBtn" class="custom-button">ausführen</button>
-                 <p id="add_p" class="result"></p>
-             </span>
-                    <span id="mul">
-                 mul(
-                 <input id="mul_input1" type="number" class="custom-input">
-                 )
-                 (
-                 <input id="mul_input2" type="number" class="custom-input">
-                 )
-                 <button id="mulBtn" class="custom-button">ausführen</button>
-                 <p id="mul_p" class="result"></p>
-             </span>
-                </div>
-                <pre>
-                    <code>
-const add_input1 = document.getElementById('add_input1');
-const add_input2 = document.getElementById('add_input2');
-const add_button = document.getElementById('addBtn');
-const add_p = document.getElementById('add_p');
-
-const mul_input1 = document.getElementById('mul_input1');
-const mul_input2 = document.getElementById('mul_input2');
-const mul_button = document.getElementById('mulBtn');
-const mul_p = document.getElementById('mul_p');
-
-add_button.addEventListener('click', () => {
-    let result = add(parseInt(add_input1.value), parseInt(add_input2.value));
-    console.log(result);
-    add_p.textContent = `${result}`;
-})
-
-mul_button.addEventListener('click', () => {
-    let result = mul(parseInt(mul_input1.value), parseInt(mul_input2.value));
-    mul_p.textContent = `${result}`;
-})
-
-
-function add(a, b) {
-    return a + b;
-}
-
-function mul(a, b) {
-    return a * b;
-}
-                    </code>
-                </pre>
-                <hr>
-                <div id="4.1.4">
-                    <h3>4.1.4 addf()</h3>
-                    <p>Schreiben Sie eine Addier-Funktion <code class="red-code">addf()</code>,
-                        so dass <code class="red-code">addf(x)(y)</code> genau <code class="red-code">x + y</code>
-                        zurück gibt. (Es haben also zwei Funktionsaufrufe zu erfolgen. <code
-                                class="red-code">addf(x)</code>
-                        liefert eine Funktion, die auf y angewandt wird.) </p>
-                    <span id="addf_span">
-                 <input type="number" id="addf_function_input" placeholder="try it out" class="custom-input">
-                 <button id="addf_function_btn" class="custom-button">ausführen</button>
-             </span>
-                </div>
-                <pre>
-                    <code>
-const addf_input = document.getElementById('addf_function_input');
-const addf_button = document.getElementById('addf_function_btn');
-const addf_span = document.getElementById('addf_span');
-const addf_p = document.createElement('p');
-addf_p.classList.add('result');
-const addf_input2 = document.createElement('input');
-addf_input2.setAttribute('type', 'number');
-addf_input2.classList.add('custom-input')
-
-addf_button.addEventListener('click', () => {
-    const x = addf(parseInt(addf_input.value));
-    const button_execute = document.createElement('button');
-    button_execute.textContent = 'ausführen';
-    button_execute.classList.add('custom-button')
-
-    button_execute.addEventListener('click', () => {
-        addf_p.innerHTML = `${x(parseInt(addf_input2.value))}`;
-    });
-
-    addf_p.innerHTML = `${x}`;
-    addf_p.appendChild(addf_input2);
-    addf_p.appendChild(button_execute);
-    addf_span.appendChild(addf_p);
-});
-
-function addf(a) {
-    return function (b) {
-        return a + b;
-    }
-}
-                    </code>
-                </pre>
-                <hr>
-                <div id="4.1.5">
-                    <h3>4.1.5 applyf()</h3>
-                    <p>chreiben Sie eine Funktion <code class="red-code">applyf()</code>, die aus einer binären Funktion
-                        wie add(x,y)
-                        eine Funktion addf berechnet, die mit zwei Aufrufen das gleiche Ergebnis liefert,
-                        z.B. <code class="red-code">addf = applyf(add); addf(x)(y)</code> soll <code class="red-code">add(x,y)</code>
-                        liefern.
-                        Entsprechend <code class="">applyf(mul)(5)(6)</code> soll <code class="red-code">30</code>
-                        liefern, wenn <code class="red-code">mul</code> die binäre Multiplikation ist. </p>
-                    <span id="span_applyf">
-                 applyf(
-                 <select id="select_applyf" class="custom-select">
-                     <option value="add">add</option>
-                     <option value="mul">mul</option>
-                 </select>
-                 )
-                 (<input type="number" id="input1_applyf" class="custom-input">)
-                 (<input type="number" id="input2_applyf" class="custom-input">)
-                 <button id="btn_applyf" class="custom-button">Ergebnis</button>
-             </span>
-                </div>
-                <pre>
-                    <code>
-                        const select_applyf = document.getElementById('select_applyf');
-const input1_applyf = document.getElementById('input1_applyf');
-const input2_applyf = document.getElementById('input2_applyf');
-const button_applyf = document.getElementById('btn_applyf');
-const span_applyf = document.getElementById('span_applyf');
-const p_applyf = document.createElement('p');
-p_applyf.classList.add('result');
-
-button_applyf.addEventListener('click', () => {
-    let bin_f = select_applyf.value === 'add' ? add : mul;
-    let result = applyf(bin_f)(parseInt(input1_applyf.value))(parseInt(input2_applyf.value));
-    console.log(result);
-    p_applyf.textContent = `${result}`;
-    span_applyf.appendChild(p_applyf);
-});
-
-function applyf(bin_f) {
-    return function (a) {
-        return function (b) {
-            return bin_f(a, b);
-        }
-    }
-}
-                    </code>
-                </pre>
-            </div>
-            <hr>
-            <div id="4.2" class="task">
-                <h2>4.2. Objekte</h2>
-                <p>Schreiben Sie die Prototypen Person und Auto in JavaScript,
-                    so dass jede Person weiß, welche Autos sie besitzt.
-                    Schreiben Sie eine Funktion <code class="red-code">conflict()</code>, die feststellt, ob ein Auto
-                    von mehr als einer Person besessen wird. </p>
-                <p>Object code:</p>
-                <pre>
-                    <code>
-function Person(name, cars) {
-    this.name = name;
-    this.cars = cars;
-}
-
-function Car(brand, id) {
-    this.brand = brand;
-    this.id = id;
-}
-
-function conflict(persons, car) {
-    let counter = 0;
-    persons.forEach(p => {
-        if (p.cars.includes(car)) {
-            counter++;
-        }
-    });
-    return counter > 1 ? true : false;
-}
-
-let equal_car = new Car("VW", 1)
-let p1_cars = [equal_car, new Car("BMW", 2), new Car("VW", 3)];
-let p2_cars = [new Car("VW", 4), new Car("Fort", 5), equal_car];
-let p1 = new Person("Peter", p1_cars);
-let p2 = new Person("Lea", p2_cars);
-let persons = [p1, p2];
-console.log(conflict(persons));
-                    </code>
-                </pre>
-
-            </div>
-            <hr>
-            <div id="4.3" class="task">
-                <h2>4.3. Fibonacci</h2>
-                <span id="fib_span">
-                 <input type="number" id="fib_input" class="custom-input">
-                 <button id="fib_button" class="custom-button">ausführen</button>
-             </span>
-                <table id="fib_table">
-                    <tr>
-                        <td>number</td>
-                        <td>fib</td>
-                    </tr>
-                </table>
-                <p id="error_message" style="color: red;"></p>
-                <hr>
-                <pre>
-                    <code>
-                        const fib_button = document.getElementById('fib_button');
-const fib_input = document.getElementById('fib_input');
-const fib_table = document.getElementById('fib_table');
-const fib_span = document.getElementById('fib_span');
-const clear_button = document.createElement('button');
-const errorMessage = document.getElementById('error_message');
-clear_button.textContent = 'löschen';
-clear_button.classList.add('del-button');
-fib_span.appendChild(clear_button);
-let table_created = true;
-
-let fib_row = { 0: 1, 1: 1 };
-
-
-clear_button.addEventListener('click', () => {
-    const rowCount = fib_table.rows.length;
-    fib_row = { 0: 1, 1:1};
-    errorMessage.textContent = '';
-    table_created = true;
-    for (let i = rowCount - 1; i >= 1; i--) {
-        fib_table.deleteRow(i);
-    }
-})
-
-
-
-fib_button.addEventListener('click', () => {
-
-    errorMessage.textContent = '';
-    const number = parseInt(fib_input.value);
-
-    if (number < 0) {
-        const errorMessage = document.getElementById('error_message');
-        errorMessage.textContent = 'Die eingegebene Zahl muss größer oder gleich Null sein.';
-        return;
-    }
-
-    if(table_created){
-        table_created = false;
-        if(number === 0){
-            addTableRow(0, 1, 0);
-        }
-        else {
-            addTableRow(0,1,0);
-            addTableRow(1, 1, 1);
-        }
-    }
-
-    resetColor();
-
-    const keys = Object.keys(fib_row);
-    const lastKey = parseInt(keys[keys.length - 1]);
-
-    if(fib(number)) {
-        const entries = Object.entries(fib_row);
-        console.log(lastKey, number);
-        for (let i = lastKey + 1; i <= number; i++) {
-            const [key, value] = entries[i];
-            addTableRow(key, value, i);
-        }
-    }
-    setColor(number)
-});
-
-function addTableRow(key, value, rowValue) {
-    const tr = document.createElement('tr');
-    const td1 = document.createElement('td');
-    const td2 = document.createElement('td');
-    tr.setAttribute('data-index', rowValue);
-    td1.textContent = key;
-    td2.textContent = value;
-
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    fib_table.appendChild(tr);
-}
-
-function setColor(number){
-    const rows = fib_table.querySelectorAll('tr');
-    rows.forEach(row => {
-        const dataIndex = row.getAttribute('data-index');
-        if (dataIndex === number.toString()) {
-            row.style.backgroundColor = '#129385';
-        }
-    });
-}
-
-function resetColor() {
-    const rows = fib_table.querySelectorAll('tr');
-    rows.forEach(row => {
-        row.style.background = 'white';
-    });
-}
-
-function fib(x) {
-    if (fib_row.hasOwnProperty(x)) return false;
-
-    let key = parseInt(Object.keys(fib_row)[Object.keys(fib_row).length - 1]);
-    let n1 = BigInt(Object.values(fib_row)[Object.values(fib_row).length - 1]); // n-1
-    let n2 = BigInt(Object.values(fib_row)[Object.values(fib_row).length - 2]); // n-2
-
-    key++;
-    while (key <= x) {
-        let temp = n1;
-        n1 += n2;
-        n2 = temp;
-        fib_row[key++] = n1;
-    }
-    return true;
-}
-                    </code>
-                </pre>
-            </div>
-            <hr>
-            <div id="4.4" class="task">
-                <h2>4.4. Topsort</h2>
-                <p>Bitte fügen sie immer genau ein Tuppel in dem Format <code class="red-code">(wert1,wert2)</code> der
-                    Liste hinzu.</p>
-                <span>
-                 <input id="input" placeholder="(x,y)" class="custom-input">
-                 <button id="add_btn" class="custom-button">hinzufügen</button>
-                 <button id="delete_btn" class="del-button">löschen</button>
-             </span>
-                <br>
-                <br>
-                <div id="list" class="result"><code class="red-code">{leer}</code></div>
-                <br>
-                <button id="create_btn" class="custom-button">sortieren</button>
-                <br>
-                <br>
-                <div id="result" class="result">[]</div>
-                <hr>
-                <pre>
-                <code>
-                    function topSort(array) {
-    let nodes = {};
-
-    array.forEach(row => row.forEach(col => {     //get all nodes
-        if (!nodes.hasOwnProperty(col)) nodes[col] = [];
-    }));
-
-    Object.keys(nodes).forEach(node => nodes[node] = predecessors(node, array)); // get the list with the predecessor for each node
-
-    let result = [];
-
-    while (Object.keys(nodes).length !== 0) {  // delete node with zero predecessor and push them in a list after delete it from each list
-        Object.keys(nodes).forEach(node => {
-            if (nodes[node].length === 0) {
-                result.push(node);
-                del(node, nodes);
-                delete nodes[node];
-            }
-        })
-    }
-    return result;
-
-}
-
-function predecessors(node, array) {
-    let predecessors = [];
-    array.forEach(pair => {
-        if (pair[1] === node && !predecessors.includes(pair[0])) predecessors.push(pair[0]);
-    });
-    return predecessors;
-}
-
-function del(node, nodes) {  // delete node in all lists
-
-    Object.keys(nodes).forEach(k => {
-        if (nodes[k].includes(node)) {
-            nodes[k].splice(nodes[k].indexOf(node), 1);
-        }
-    });
-}
-
-let l=[];
-let list_str = "";
-const add_btn = document.getElementById("add_btn");
-const create_btn = document.getElementById("create_btn");
-const list = document.getElementById("list");
-const input = document.getElementById("input");
-const result = document.getElementById("result");
-const delete_btn = document.getElementById("delete_btn");
-
-
-add_btn.addEventListener('click', ()=>{
-
-    result.textContent = "";
-    let temp = input.value.split(',');
-    let e1 = temp[0].substring(1,temp[0].length);
-    let e2 = temp[1].substring(0,temp[1].length-1);
-    l.push([e1,e2]);
-    if( list_str.length === 0){
-        list_str = `{(${e1},${e2})}`;
-    }
-    else{
-        list_str = list_str.substring(0,list_str.length-1) + ',' + `(${e1},${e2})` + '}';
-    }
-    list.textContent = list_str;
-    input.value = '';
-
-
-
-});
-
-create_btn.addEventListener('click', ()=>{
-    result.textContent = "["+topSort(l)+"]";
-});
-
-delete_btn.addEventListener('click', ()=>{
-    list_str = "";
-    list.textContent = "{leer}";
-    result.textContent = "";
-    l = [];
-})
-/*
-let x = [["unterhose", "hose"], ["socken", "schuhe"], ["hose", "mantel"], ["unterhemd", "pulli"], ["pulli", "mantel"], ["hose", "schuhe"]];
-console.log(topSort(x));*/
-                </code>
-            </pre>
-            </div>
-
-
-        </div>
-
-
-        <!-- <div id="DOM">
-            <div id="5.1">
+        <!--     <div id="JS">
+                 <h1>JavaScript</h1>
+                 <hr>
+                 <div id="4.1" class="task">
+                     <h2>4.1 Funktionen</h2>
+                     <hr>
+                     <div id="4.1.1">
+                         <h3>4.1.1 identity()</h3>
+                         <p>Schreiben Sie eine Funktion <code class="red-code">identity()</code>, die ein Argument als
+                             Parameter entgegen nimmt und dieses als Ergebnis zurück gibt.</p>
+                         <input type="text" id="identity" placeholder="try it out" class="custom-input">
+                         <button id="btn1" class="custom-button">Ergebnis</button>
+                         <p id="p1" class="result"> identity( )</p>
+                     </div>
+                    <pre>
+                        <code>
+     const input_identity = document.getElementById("identity");
+     const p_identity = document.getElementById('p1');
+     const button_identity = document.getElementById('btn1');
+     const span_identity = document.createElement('span');
+
+     button_identity.addEventListener('click', () => {
+         let result = identity(input_identity.value);
+         span_identity.textContent = ` = ${result}`;
+         p_identity.innerHTML += span_identity.outerHTML;
+         input_identity.value = '';
+     });
+
+     input_identity.addEventListener('input', function (event) {
+         p_identity.textContent = 'identity( ' + this.value + ' )';
+     });
+
+     function identity(input) {
+         return input;
+     }
+                        </code>
+                    </pre>
+                     <hr>
+                     <div id="4.1.2">
+                         <h3>4.1.2 identity_function()</h3>
+                         <p>Schreiben Sie eine Funktion <code class="red-code">identity_function()</code>, die ein Argument
+                             als Parameter entgegen nimmt und eine Funktion zurück gibt, die dieses Argument zurück gibt.</p>
+                         <span id="id_span" class="custom-span">
+                      <input type="text" id="id_function_input" class="custom-input" placeholder="try it out">
+                      <button id="id_function_btn" class="custom-button">ausführen</button>
+                  </span>
+                     </div>
+                     <pre>
+                         <code>
+     const id_input = document.getElementById('id_function_input');
+     const id_button = document.getElementById('id_function_btn');
+     const id_span = document.getElementById('id_span');
+     const p_test = document.createElement('p');
+     p_test.classList.add('result');
+
+     id_button.addEventListener('click', () => {
+         const x = identity_function(id_input.value);
+         const button_execute = document.createElement('button');
+         button_execute.textContent = 'ausführen';
+         button_execute.classList.add('custom-button');
+
+         button_execute.addEventListener('click', () => {
+             p_test.innerHTML = `${x()}`;
+         });
+
+         p_test.innerHTML = `${x}`;
+         p_test.appendChild(button_execute);
+         id_span.appendChild(p_test);
+     });
+
+     function identity_function(param) {
+         return function () {
+             return param;
+         }
+     }
+
+                         </code>
+                     </pre>
+                     <hr>
+                     <div id="4.1.3">
+                         <h3>4.1.3 add() mul()</h3>
+                         <p>Schreiben Sie zwei binäre Funktionen <code class="red-code">add</code>und <code class="red-code">mul</code>,
+                             die Summe und Produkt berechnen.</p>
+                         <span id="add">
+                      add(
+                      <input id="add_input1" type="number" class="custom-input">
+                      )
+                      (
+                      <input id="add_input2" type="number" class="custom-input">
+                      )
+                      <button id="addBtn" class="custom-button">ausführen</button>
+                      <p id="add_p" class="result"></p>
+                  </span>
+                         <span id="mul">
+                      mul(
+                      <input id="mul_input1" type="number" class="custom-input">
+                      )
+                      (
+                      <input id="mul_input2" type="number" class="custom-input">
+                      )
+                      <button id="mulBtn" class="custom-button">ausführen</button>
+                      <p id="mul_p" class="result"></p>
+                  </span>
+                     </div>
+                     <pre>
+                         <code>
+     const add_input1 = document.getElementById('add_input1');
+     const add_input2 = document.getElementById('add_input2');
+     const add_button = document.getElementById('addBtn');
+     const add_p = document.getElementById('add_p');
+
+     const mul_input1 = document.getElementById('mul_input1');
+     const mul_input2 = document.getElementById('mul_input2');
+     const mul_button = document.getElementById('mulBtn');
+     const mul_p = document.getElementById('mul_p');
+
+     add_button.addEventListener('click', () => {
+         let result = add(parseInt(add_input1.value), parseInt(add_input2.value));
+         console.log(result);
+         add_p.textContent = `${result}`;
+     })
+
+     mul_button.addEventListener('click', () => {
+         let result = mul(parseInt(mul_input1.value), parseInt(mul_input2.value));
+         mul_p.textContent = `${result}`;
+     })
+
+
+     function add(a, b) {
+         return a + b;
+     }
+
+     function mul(a, b) {
+         return a * b;
+     }
+                         </code>
+                     </pre>
+                     <hr>
+                     <div id="4.1.4">
+                         <h3>4.1.4 addf()</h3>
+                         <p>Schreiben Sie eine Addier-Funktion <code class="red-code">addf()</code>,
+                             so dass <code class="red-code">addf(x)(y)</code> genau <code class="red-code">x + y</code>
+                             zurück gibt. (Es haben also zwei Funktionsaufrufe zu erfolgen. <code
+                                     class="red-code">addf(x)</code>
+                             liefert eine Funktion, die auf y angewandt wird.) </p>
+                         <span id="addf_span">
+                      <input type="number" id="addf_function_input" placeholder="try it out" class="custom-input">
+                      <button id="addf_function_btn" class="custom-button">ausführen</button>
+                  </span>
+                     </div>
+                     <pre>
+                         <code>
+     const addf_input = document.getElementById('addf_function_input');
+     const addf_button = document.getElementById('addf_function_btn');
+     const addf_span = document.getElementById('addf_span');
+     const addf_p = document.createElement('p');
+     addf_p.classList.add('result');
+     const addf_input2 = document.createElement('input');
+     addf_input2.setAttribute('type', 'number');
+     addf_input2.classList.add('custom-input')
+
+     addf_button.addEventListener('click', () => {
+         const x = addf(parseInt(addf_input.value));
+         const button_execute = document.createElement('button');
+         button_execute.textContent = 'ausführen';
+         button_execute.classList.add('custom-button')
+
+         button_execute.addEventListener('click', () => {
+             addf_p.innerHTML = `${x(parseInt(addf_input2.value))}`;
+         });
+
+         addf_p.innerHTML = `${x}`;
+         addf_p.appendChild(addf_input2);
+         addf_p.appendChild(button_execute);
+         addf_span.appendChild(addf_p);
+     });
+
+     function addf(a) {
+         return function (b) {
+             return a + b;
+         }
+     }
+                         </code>
+                     </pre>
+                     <hr>
+                     <div id="4.1.5">
+                         <h3>4.1.5 applyf()</h3>
+                         <p>chreiben Sie eine Funktion <code class="red-code">applyf()</code>, die aus einer binären Funktion
+                             wie add(x,y)
+                             eine Funktion addf berechnet, die mit zwei Aufrufen das gleiche Ergebnis liefert,
+                             z.B. <code class="red-code">addf = applyf(add); addf(x)(y)</code> soll <code class="red-code">add(x,y)</code>
+                             liefern.
+                             Entsprechend <code class="">applyf(mul)(5)(6)</code> soll <code class="red-code">30</code>
+                             liefern, wenn <code class="red-code">mul</code> die binäre Multiplikation ist. </p>
+                         <span id="span_applyf">
+                      applyf(
+                      <select id="select_applyf" class="custom-select">
+                          <option value="add">add</option>
+                          <option value="mul">mul</option>
+                      </select>
+                      )
+                      (<input type="number" id="input1_applyf" class="custom-input">)
+                      (<input type="number" id="input2_applyf" class="custom-input">)
+                      <button id="btn_applyf" class="custom-button">Ergebnis</button>
+                  </span>
+                     </div>
+                     <pre>
+                         <code>
+                             const select_applyf = document.getElementById('select_applyf');
+     const input1_applyf = document.getElementById('input1_applyf');
+     const input2_applyf = document.getElementById('input2_applyf');
+     const button_applyf = document.getElementById('btn_applyf');
+     const span_applyf = document.getElementById('span_applyf');
+     const p_applyf = document.createElement('p');
+     p_applyf.classList.add('result');
+
+     button_applyf.addEventListener('click', () => {
+         let bin_f = select_applyf.value === 'add' ? add : mul;
+         let result = applyf(bin_f)(parseInt(input1_applyf.value))(parseInt(input2_applyf.value));
+         console.log(result);
+         p_applyf.textContent = `${result}`;
+         span_applyf.appendChild(p_applyf);
+     });
+
+     function applyf(bin_f) {
+         return function (a) {
+             return function (b) {
+                 return bin_f(a, b);
+             }
+         }
+     }
+                         </code>
+                     </pre>
+                 </div>
+                 <hr>
+                 <div id="4.2" class="task">
+                     <h2>4.2. Objekte</h2>
+                     <p>Schreiben Sie die Prototypen Person und Auto in JavaScript,
+                         so dass jede Person weiß, welche Autos sie besitzt.
+                         Schreiben Sie eine Funktion <code class="red-code">conflict()</code>, die feststellt, ob ein Auto
+                         von mehr als einer Person besessen wird. </p>
+                     <p>Object code:</p>
+                     <pre>
+                         <code>
+     function Person(name, cars) {
+         this.name = name;
+         this.cars = cars;
+     }
+
+     function Car(brand, id) {
+         this.brand = brand;
+         this.id = id;
+     }
+
+     function conflict(persons, car) {
+         let counter = 0;
+         persons.forEach(p => {
+             if (p.cars.includes(car)) {
+                 counter++;
+             }
+         });
+         return counter > 1 ? true : false;
+     }
+
+     let equal_car = new Car("VW", 1)
+     let p1_cars = [equal_car, new Car("BMW", 2), new Car("VW", 3)];
+     let p2_cars = [new Car("VW", 4), new Car("Fort", 5), equal_car];
+     let p1 = new Person("Peter", p1_cars);
+     let p2 = new Person("Lea", p2_cars);
+     let persons = [p1, p2];
+     console.log(conflict(persons));
+                         </code>
+                     </pre>
+
+                 </div>
+                 <hr>
+                 <div id="4.3" class="task">
+                     <h2>4.3. Fibonacci</h2>
+                     <span id="fib_span">
+                      <input type="number" id="fib_input" class="custom-input">
+                      <button id="fib_button" class="custom-button">ausführen</button>
+                  </span>
+                     <table id="fib_table">
+                         <tr>
+                             <td>number</td>
+                             <td>fib</td>
+                         </tr>
+                     </table>
+                     <p id="error_message" style="color: red;"></p>
+                     <hr>
+                     <pre>
+                         <code>
+                             const fib_button = document.getElementById('fib_button');
+     const fib_input = document.getElementById('fib_input');
+     const fib_table = document.getElementById('fib_table');
+     const fib_span = document.getElementById('fib_span');
+     const clear_button = document.createElement('button');
+     const errorMessage = document.getElementById('error_message');
+     clear_button.textContent = 'löschen';
+     clear_button.classList.add('del-button');
+     fib_span.appendChild(clear_button);
+     let table_created = true;
+
+     let fib_row = { 0: 1, 1: 1 };
+
+
+     clear_button.addEventListener('click', () => {
+         const rowCount = fib_table.rows.length;
+         fib_row = { 0: 1, 1:1};
+         errorMessage.textContent = '';
+         table_created = true;
+         for (let i = rowCount - 1; i >= 1; i&#45;&#45;) {
+             fib_table.deleteRow(i);
+         }
+     })
+
+
+
+     fib_button.addEventListener('click', () => {
+
+         errorMessage.textContent = '';
+         const number = parseInt(fib_input.value);
+
+         if (number < 0) {
+             const errorMessage = document.getElementById('error_message');
+             errorMessage.textContent = 'Die eingegebene Zahl muss größer oder gleich Null sein.';
+             return;
+         }
+
+         if(table_created){
+             table_created = false;
+             if(number === 0){
+                 addTableRow(0, 1, 0);
+             }
+             else {
+                 addTableRow(0,1,0);
+                 addTableRow(1, 1, 1);
+             }
+         }
+
+         resetColor();
+
+         const keys = Object.keys(fib_row);
+         const lastKey = parseInt(keys[keys.length - 1]);
+
+         if(fib(number)) {
+             const entries = Object.entries(fib_row);
+             console.log(lastKey, number);
+             for (let i = lastKey + 1; i <= number; i++) {
+                 const [key, value] = entries[i];
+                 addTableRow(key, value, i);
+             }
+         }
+         setColor(number)
+     });
+
+     function addTableRow(key, value, rowValue) {
+         const tr = document.createElement('tr');
+         const td1 = document.createElement('td');
+         const td2 = document.createElement('td');
+         tr.setAttribute('data-index', rowValue);
+         td1.textContent = key;
+         td2.textContent = value;
+
+         tr.appendChild(td1);
+         tr.appendChild(td2);
+         fib_table.appendChild(tr);
+     }
+
+     function setColor(number){
+         const rows = fib_table.querySelectorAll('tr');
+         rows.forEach(row => {
+             const dataIndex = row.getAttribute('data-index');
+             if (dataIndex === number.toString()) {
+                 row.style.backgroundColor = '#129385';
+             }
+         });
+     }
+
+     function resetColor() {
+         const rows = fib_table.querySelectorAll('tr');
+         rows.forEach(row => {
+             row.style.background = 'white';
+         });
+     }
+
+     function fib(x) {
+         if (fib_row.hasOwnProperty(x)) return false;
+
+         let key = parseInt(Object.keys(fib_row)[Object.keys(fib_row).length - 1]);
+         let n1 = BigInt(Object.values(fib_row)[Object.values(fib_row).length - 1]); // n-1
+         let n2 = BigInt(Object.values(fib_row)[Object.values(fib_row).length - 2]); // n-2
+
+         key++;
+         while (key <= x) {
+             let temp = n1;
+             n1 += n2;
+             n2 = temp;
+             fib_row[key++] = n1;
+         }
+         return true;
+     }
+                         </code>
+                     </pre>
+                 </div>
+                 <hr>
+                 <div id="4.4" class="task">
+                     <h2>4.4. Topsort</h2>
+                     <p>Bitte fügen sie immer genau ein Tuppel in dem Format <code class="red-code">(wert1,wert2)</code> der
+                         Liste hinzu.</p>
+                     <span>
+                      <input id="input" placeholder="(x,y)" class="custom-input">
+                      <button id="add_btn" class="custom-button">hinzufügen</button>
+                      <button id="delete_btn" class="del-button">löschen</button>
+                  </span>
+                     <br>
+                     <br>
+                     <div id="list" class="result"><code class="red-code">{leer}</code></div>
+                     <br>
+                     <button id="create_btn" class="custom-button">sortieren</button>
+                     <br>
+                     <br>
+                     <div id="result" class="result">[]</div>
+                     <hr>
+                     <pre>
+                     <code>
+                         function topSort(array) {
+         let nodes = {};
+
+         array.forEach(row => row.forEach(col => {     //get all nodes
+             if (!nodes.hasOwnProperty(col)) nodes[col] = [];
+         }));
+
+         Object.keys(nodes).forEach(node => nodes[node] = predecessors(node, array)); // get the list with the predecessor for each node
+
+         let result = [];
+
+         while (Object.keys(nodes).length !== 0) {  // delete node with zero predecessor and push them in a list after delete it from each list
+             Object.keys(nodes).forEach(node => {
+                 if (nodes[node].length === 0) {
+                     result.push(node);
+                     del(node, nodes);
+                     delete nodes[node];
+                 }
+             })
+         }
+         return result;
+
+     }
+
+     function predecessors(node, array) {
+         let predecessors = [];
+         array.forEach(pair => {
+             if (pair[1] === node && !predecessors.includes(pair[0])) predecessors.push(pair[0]);
+         });
+         return predecessors;
+     }
+
+     function del(node, nodes) {  // delete node in all lists
+
+         Object.keys(nodes).forEach(k => {
+             if (nodes[k].includes(node)) {
+                 nodes[k].splice(nodes[k].indexOf(node), 1);
+             }
+         });
+     }
+
+     let l=[];
+     let list_str = "";
+     const add_btn = document.getElementById("add_btn");
+     const create_btn = document.getElementById("create_btn");
+     const list = document.getElementById("list");
+     const input = document.getElementById("input");
+     const result = document.getElementById("result");
+     const delete_btn = document.getElementById("delete_btn");
+
+
+     add_btn.addEventListener('click', ()=>{
+
+         result.textContent = "";
+         let temp = input.value.split(',');
+         let e1 = temp[0].substring(1,temp[0].length);
+         let e2 = temp[1].substring(0,temp[1].length-1);
+         l.push([e1,e2]);
+         if( list_str.length === 0){
+             list_str = `{(${e1},${e2})}`;
+         }
+         else{
+             list_str = list_str.substring(0,list_str.length-1) + ',' + `(${e1},${e2})` + '}';
+         }
+         list.textContent = list_str;
+         input.value = '';
+
+
+
+     });
+
+     create_btn.addEventListener('click', ()=>{
+         result.textContent = "["+topSort(l)+"]";
+     });
+
+     delete_btn.addEventListener('click', ()=>{
+         list_str = "";
+         list.textContent = "{leer}";
+         result.textContent = "";
+         l = [];
+     })
+     /*
+     let x = [["unterhose", "hose"], ["socken", "schuhe"], ["hose", "mantel"], ["unterhemd", "pulli"], ["pulli", "mantel"], ["hose", "schuhe"]];
+     console.log(topSort(x));*/
+                     </code>
+                 </pre>
+                 </div>
+
+
+             </div>-->
+
+
+        <div id="DOM">
+            <h1>DOM</h1>
+            <div id="5.1" class="task">
                 <h2>5.1. Performanz-Messungen von DOM-Operationen</h2>
+                <p>
+                    Implementieren Sie Performanz-Messungen zum Vergleich von
+                    <ul>
+                        <li><code class="red-code">innerHTML</code></li>
+                        <li><code class="red-code">innerText</code></li>
+                        <li><code class="red-code">textContent</code></li>
+                        <li><code class="red-code">outerHTML</code></li>
+
+                    </ul>
+                    selbstständig in JavaScript durch Nutzung der DOM-API. Geben Sie die Messergebnisse als Tabelle aus.
+                    Verwenden Sie die eingebauten Zeitmessung-Funktionen performance.now(), siehe auch When-milliseconds-are-not-enough-performance-now.
+                    Suchen Sie eine möglichst kurze und elegante Lösung.
+
+                </p>
                 <div>
-                    <input id="performance_input">
-                    <button id="performance_button">Add</button>
+                    <input id="performance_input" class="custom-input">
+                    <button id="performance_button" class="custom-button">ausführen</button>
                 </div>
                 <br>
                 <table>
@@ -601,18 +616,274 @@ console.log(topSort(x));*/
                         <td id="outerHTMLResult"></td>
                     </tr>
                 </table>
+                <hr>
+                <p>performance code:</p>
+                <pre>
+                    <code>
+const performance_input = document.getElementById("performance_input");
+const performance_button = document.getElementById("performance_button");
+const innerHTMLResult = document.getElementById("innerHTMLResult");
+const innerTextResult = document.getElementById("innerTextResult");
+const textContentResult = document.getElementById("textContentResult");
+const outerHTMLResult = document.getElementById("outerHTMLResult");
+
+
+performance_button.addEventListener('click', () => {
+    const t0 = performance.now();
+    innerHTMLResult.innerHTML = performance_input.value;
+    const t1 = performance.now();
+    innerHTMLResult.textContent = t1 - t0;
+
+    const t2 = performance.now();
+    innerTextResult.innerText = performance_input.value;
+    const t3 = performance.now();
+    innerTextResult.textContent = t3 - t2;
+
+    const t4 = performance.now();
+    textContentResult.textContent = performance_input.value;
+    const t5 = performance.now();
+    textContentResult.textContent = t5 - t4;
+
+    const t6 = performance.now();
+    outerHTMLResult.textContent = performance_input.value;
+    const t7 = performance.now();
+    console.log(t7 - t6);
+    outerHTMLResult.textContent = t7 - t6;
+
+});
+                    </code>
+                </pre>
             </div>
-            <div id="5.2">
+            <hr>
+            <div id="5.2" class="task">
                 <h2>5.2. Rednerliste mit Zeitmessung</h2>
+                <p>
+                    Implementieren Sie die interaktive Anwendung "Rednerliste mit Zeitmessung"
+                    selbstständig in JavaScript durch Nutzung der DOM-API und der Timer-Funktionen.
+                    Neue Redner sollen auf Knopfdruck hinzugefügt werden können.
+                    Deren Uhr wird dann sofort automatisch gestartet und alle anderen Uhren angehalten.
+                    Bei jedem Redner soll die individuelle, gemessene Redezeit sekundengenau angezeigt werden.
+                    Für jeden Redner soll es einen eigenen Start-/Stopp-Button geben.
+                    Es soll immer nur eine Uhr laufen. Angezeigt werden sollen die bisherigen Summenzeiten aller
+                    Redebeiträge der betreffenden Person. Suchen Sie eine möglichst kurze und elegante Lösung.
+                    Achten Sie gleichzeitig auf gute Usability: z.B. wenn die Eingabe mit einem Return beendet wird,
+                    soll der Klick auf den Button nicht mehr erforderlich sein.
+                </p>
                 <span>Neuer Redner:
-                    <input type="text" id="speaker_input">
-                    <button id="speaker_button">Hinzufügen</button>
+                    <input type="text" id="speaker_input" class="custom-input">
+                    <button id="speaker_button" class="custom-button">Hinzufügen</button>
                 </span>
                 <ul id="speaker_list">
 
                 </ul>
+                <hr>
+                <p>Redner code:</p>
+                <pre>
+                    <code>
+                        const speaker_button = document.getElementById("speaker_button");
+const speaker_input = document.getElementById("speaker_input");
+const speaker_list = document.getElementById("speaker_list");
+
+
+speaker_button.addEventListener("click", ()=> {
+    addRedner(speaker_input.value);
+    speaker_input.value = '';
+})
+
+function addRedner(speaker_name) {
+
+    let seconds = 0;
+    let minutes = 0;
+    let hours = 0;
+
+    speaker_list.querySelectorAll('li').forEach(li => {
+        li.setAttribute('data-running', '0')
+        li.querySelectorAll('button').forEach((btn) => btn.innerHTML = 'Start!')
+    });
+
+    const listItem = document.createElement('li');
+    listItem.setAttribute('data-running', '1');
+
+    const btn = document.createElement('button');
+    btn.classList.add('custom-button');
+    btn.innerHTML = 'Stop!';
+
+    btn.addEventListener('click', ()=> {
+        if (listItem.getAttribute('data-running') == '0') {
+            speaker_list.querySelectorAll('li').forEach(li => li.setAttribute('data-running', '0'));
+            listItem.setAttribute('data-running', '1');
+            speaker_list.querySelectorAll('button').forEach((btn) => btn.innerHTML = 'Start!');
+            btn.innerHTML = 'Stop!';
+        } else {
+            listItem.setAttribute('data-running', '0');
+            btn.innerHTML = 'Start!';
+        }
+    })
+
+
+
+    speaker_list.appendChild(listItem);
+
+    let content = speaker_name + " 0" + hours + ":0" + minutes + ":0" + seconds + "  ";
+
+    listItem.innerHTML = content;
+    listItem.appendChild(btn);
+
+
+
+    const timerInterval = setInterval(()=> {
+
+        if (listItem.getAttribute('data-running') == '1') {
+
+            seconds = parseInt(seconds) + 1;
+            minutes = parseInt(minutes);
+            hours = parseInt(hours);
+
+            if (seconds == 60) {
+                seconds = 0;
+                minutes = parseInt(minutes) + 1;
+            }
+
+            if (minutes == 60) {
+                minutes = 0;
+                hours = parseInt(hours) + 1;
+            }
+
+            if (seconds < 10 || seconds == 0) {
+                seconds = '0' + seconds;
+            }
+
+            if (minutes < 10 || minutes == 0) {
+                minutes = '0' + minutes;
+            }
+
+            if (hours < 10 || hours == 0) {
+                hours = '0' + hours;
+            }
+
+            content = speaker_name + " " + hours + ":" + minutes + ":" + seconds + "   ";
+
+            listItem.innerHTML = content;
+            listItem.appendChild(btn);
+        }
+
+
+    }, 1000)
+}
+                    </code>
+                </pre>
             </div>
-        </div> -->
+            <hr>
+            <div id="5.3" class="task">
+                <h2>5.3. TopSort als Web-App</h2>
+                <p>Schreiben Sie eine Weboberfläche, in der man beliebige Beziehungen (Vorrang-Relationen) eingeben kann,
+                    für die dann die topologische Sortierung per Knopfdruck auf der Webseite ausgegeben wird. </p>
+                <p>Bitte fügen sie immer genau ein Tuppel in dem Format <code class="red-code">(wert1,wert2)</code> der
+                    Liste hinzu.</p>
+                <span>
+                      <input id="input" placeholder="(x,y)" class="custom-input">
+                      <button id="add_btn" class="custom-button">hinzufügen</button>
+                      <button id="delete_btn" class="del-button">löschen</button>
+                  </span>
+                <br>
+                <br>
+                <div id="list" class="result"><code class="red-code">{leer}</code></div>
+                <br>
+                <button id="create_btn" class="custom-button">sortieren</button>
+                <br>
+                <br>
+                <div id="result" class="result">[]</div>
+                <hr>
+                <pre>
+                     <code>
+                         function topSort(array) {
+         let nodes = {};
+
+         array.forEach(row => row.forEach(col => {     //get all nodes
+             if (!nodes.hasOwnProperty(col)) nodes[col] = [];
+         }));
+
+         Object.keys(nodes).forEach(node => nodes[node] = predecessors(node, array)); // get the list with the predecessor for each node
+
+         let result = [];
+
+         while (Object.keys(nodes).length !== 0) {  // delete node with zero predecessor and push them in a list after delete it from each list
+             Object.keys(nodes).forEach(node => {
+                 if (nodes[node].length === 0) {
+                     result.push(node);
+                     del(node, nodes);
+                     delete nodes[node];
+                 }
+             })
+         }
+         return result;
+
+     }
+
+     function predecessors(node, array) {
+         let predecessors = [];
+         array.forEach(pair => {
+             if (pair[1] === node && !predecessors.includes(pair[0])) predecessors.push(pair[0]);
+         });
+         return predecessors;
+     }
+
+     function del(node, nodes) {  // delete node in all lists
+
+         Object.keys(nodes).forEach(k => {
+             if (nodes[k].includes(node)) {
+                 nodes[k].splice(nodes[k].indexOf(node), 1);
+             }
+         });
+     }
+
+     let l=[];
+     let list_str = "";
+     const add_btn = document.getElementById("add_btn");
+     const create_btn = document.getElementById("create_btn");
+     const list = document.getElementById("list");
+     const input = document.getElementById("input");
+     const result = document.getElementById("result");
+     const delete_btn = document.getElementById("delete_btn");
+
+
+     add_btn.addEventListener('click', ()=>{
+
+         result.textContent = "";
+         let temp = input.value.split(',');
+         let e1 = temp[0].substring(1,temp[0].length);
+         let e2 = temp[1].substring(0,temp[1].length-1);
+         l.push([e1,e2]);
+         if( list_str.length === 0){
+             list_str = `{(${e1},${e2})}`;
+         }
+         else{
+             list_str = list_str.substring(0,list_str.length-1) + ',' + `(${e1},${e2})` + '}';
+         }
+         list.textContent = list_str;
+         input.value = '';
+
+
+
+     });
+
+     create_btn.addEventListener('click', ()=>{
+         result.textContent = "["+topSort(l)+"]";
+     });
+
+     delete_btn.addEventListener('click', ()=>{
+         list_str = "";
+         list.textContent = "{leer}";
+         result.textContent = "";
+         l = [];
+     })
+     /*
+     let x = [["unterhose", "hose"], ["socken", "schuhe"], ["hose", "mantel"], ["unterhemd", "pulli"], ["pulli", "mantel"], ["hose", "schuhe"]];
+     console.log(topSort(x));*/
+                     </code>
+                 </pre>
+            </div>
+        </div>
         <!--<div id="ECMAScript">
             <div id="6.1">
                 <h2>6.1. Klammerpaare</h2>
