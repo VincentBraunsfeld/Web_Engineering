@@ -1,0 +1,142 @@
+.task{
+    background-color: aliceblue;
+    border-color: #394352;
+    border-radius: 25px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+h1{
+    text-align: center;
+    border-radius: 25px;
+    background-color: aliceblue;
+    font-size: 30px;
+    padding: 20px;
+}
+
+xmp{
+    background-color: #394352;
+    height: 350px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    font-family: "Arial Narrow";
+    color: white;
+    overflow-y: auto ;
+}
+
+main{
+    overflow-x: auto;
+}
+
+
+
+.custom-input {
+    padding: 10px 12px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    transition: border-color 0.2s ease;
+}
+
+.custom-input:focus {
+    outline: none;
+    border-color: #1e59de;
+    box-shadow: 0 0 0 2px rgba(65, 132, 196, 0.3);
+}
+
+.custom-button {
+    padding: 10px 16px;
+    background-color: #1e59de;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.custom-button:hover {
+    background-color: #3c8fff;
+    box-shadow: 0 4px 8px rgb(111, 171, 253);
+}
+
+.del-button {
+    padding: 10px 16px;
+    background-color: #e51b3a;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.del-button:hover {
+    background-color: #da6060;
+    box-shadow: 0 4px 8px rgb(206, 41, 66);
+}
+
+
+.result {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.result strong {
+    font-weight: bold;
+    color: #000;
+}
+
+.custom-select {
+    background-color: #ffffff;
+    border: 1px solid #206aee;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    width: 200px;
+}
+
+.custom-select:focus {
+    outline: none;
+    box-shadow: 0 0 3px #aaa;
+}
+
+.red-code{
+    color: #d54a4a;
+    background-color: #efd1db;
+    font-family: "Courier New", monospace;
+    border-radius: 5px;
+}
+
+table {
+    width: 50%;
+    margin-top: 10px ;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #eaeaea;
+}

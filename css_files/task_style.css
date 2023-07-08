@@ -88,16 +88,6 @@ xmp{
     overflow-y: auto ;
 }
 
-.code-box {
-    width: 100%;
-    height: 200px;
-    overflow-x: auto;
-    white-space: pre;
-    background-color: #f8f8f8;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
 .show_solution{
     text-align: center;
     display: block;
