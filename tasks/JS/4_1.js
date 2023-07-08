@@ -3,18 +3,20 @@ const input_identity = document.getElementById("identity");
 const p_identity = document.getElementById('p1');
 const button_identity = document.getElementById('btn1');
 const span_identity = document.createElement('span');
+
 button_identity.addEventListener('click', () => {
     let result = identity(input_identity.value);
     span_identity.textContent = ` = ${result}`;
     p_identity.innerHTML += span_identity.outerHTML;
     input_identity.value = '';
 });
-input_identity.addEventListener('input', function( event ){
-    p_identity.textContent = 'identity( '+this.value+' )';
+
+input_identity.addEventListener('input', function (event) {
+    p_identity.textContent = 'identity( ' + this.value + ' )';
 });
 
-function identity( input ){
-        return input;
+function identity(input) {
+    return input;
 }
 
 //4.1.2
@@ -57,7 +59,6 @@ const mul_button = document.getElementById('mulBtn');
 const mul_p = document.getElementById('mul_p');
 
 add_button.addEventListener('click', () => {
-
     let result = add(parseInt(add_input1.value), parseInt(add_input2.value));
     console.log(result);
     add_p.textContent = `${result}`;
@@ -69,12 +70,12 @@ mul_button.addEventListener('click', () => {
 })
 
 
-function add(a , b){
-    return a+b;
+function add(a, b) {
+    return a + b;
 }
 
-function mul(a , b){
-    return a*b;
+function mul(a, b) {
+    return a * b;
 }
 
 //4.1.4 anpassen
@@ -102,8 +103,9 @@ addf_button.addEventListener('click', () => {
     addf_p.appendChild(button_execute);
     addf_span.appendChild(addf_p);
 });
-function addf( a ){
-    return function( b ){
+
+function addf(a) {
+    return function (b) {
         return a + b;
     }
 }
@@ -124,10 +126,11 @@ button_applyf.addEventListener('click', () => {
     p_applyf.textContent = `${result}`;
     span_applyf.appendChild(p_applyf);
 });
-function applyf( bin_f ){
-    return function(a){
-        return function(b){
-            return bin_f(a,b);
+
+function applyf(bin_f) {
+    return function (a) {
+        return function (b) {
+            return bin_f(a, b);
         }
     }
 }
