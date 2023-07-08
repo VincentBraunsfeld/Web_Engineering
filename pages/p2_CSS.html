@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="../css_files/layout.css">
     <link rel="stylesheet" href="../css_files/task_style.css">
     <link rel="stylesheet" href="../css_files/buttons.css">
+
     <script src="../js_files/hamburger.js" defer></script>
     <script src="../js_files/scrollToTopBtn.js" defer></script>
+    <script src="../js_files/css_switchContent.js" defer></script>
 </head>
 <body>
 
@@ -35,16 +37,10 @@
     </header>
     <content>
         <aside>
-            <ul>
-                <li>text</li>
-                <li>text</li>
-                <li>text</li>
-                <li>text</li>
-                <li>text</li>
-            </ul>
+
         </aside>
         <main>
-
+          <div id="css">
             <h1>CSS Übung</h1>
             <hr>
             <div class="task">
@@ -86,8 +82,8 @@
                 <h2>CSS-Positionierung</h2>
                 <p>Bauen Sie das dynamische Verhalten in den folgenden beiden Videos exakt nach:</p>
                 <ul>
-                    <li class="li"><a href="https://www.youtube.com/watch?v=PE3POxjDspo">sticky</a></li>
-                    <li class="li"><a href="https://www.youtube.com/watch?v=HVmnv3k4__E">checkbox</a></li>
+                    <li class="li"><a href="https://www.youtube.com/watch?v=PE3POxjDspo" target="_blank">sticky</a></li>
+                    <li class="li"><a href="https://www.youtube.com/watch?v=HVmnv3k4__E" target="_blank">checkbox</a></li>
                 </ul>
                 <p>Arbeiten Sie in beiden Fällen nur mit HTML und CSS, ohne JavaScript.</p>
                 <hr>
@@ -108,7 +104,7 @@
                         }
                     </style>
                 </xmp>
-                <a class="show_solution" href="../tasks/CSS_1/pos_1.html">Lösung</a>
+                <a class="show_solution" href="../tasks/CSS_1/pos_1.html" target="_blank">Lösung</a>
                 <hr>
                 <p>Code for checkbox:</p>
                 <xmp>
@@ -130,13 +126,13 @@
                         }
                     </style>
                 </xmp>
-                <a class="show_solution" href="../tasks/CSS_1/pos_2.html">Lösung</a>
+                <a class="show_solution" href="../tasks/CSS_1/pos_2.html" target="_blank">Lösung</a>
             </div>
             <div class="task">
                 <h2>Wireframe mit HTML und CSS</h2>
                 <p>Gegeben ist folgendes HTML-Wireframe:</p>
                 <ul>
-                    <li class="li"><a href="https://kaul.inf.h-brs.de/ccm/we/ws22/resources/img/assets/survey.png">HTML-Wireframe</a>
+                    <li class="li"><a href="https://kaul.inf.h-brs.de/ccm/we/ws22/resources/img/assets/survey.png" target="_blank">HTML-Wireframe</a>
                     </li>
                 </ul>
                 <p>Mit welchem HTML- und CSS-Code kann man
@@ -264,7 +260,7 @@
                     </body>
                     </html>
                 </xmp>
-                <a class="show_solution" href="../tasks/CSS_1/wireframe.html">Lösung</a>
+                <a class="show_solution" href="../tasks/CSS_1/wireframe.html" target="_blank">Lösung</a>
                 <hr>
                 <p><b>Frage:</b> Was war in der Lösung dieser Aufgabe die größte Schwierigkeit und wie haben Sie diese
                     gelöst?</p>
@@ -274,6 +270,254 @@
                     Schluss habe ich die Aufgabe mit einer Tabelle gelöst.</p>
 
             </div>
+            </div>
+         <div style="display: none"id="rwd">
+             <h1>RWD Übung</h1>
+             <hr>
+             <div class="task">
+                 <h2>Flexbox Desktop-First</h2>
+                 <p>Spielen Sie zunächst das <a href="http://flexboxfroggy.com/#de" target="_blank">Flexbox Froggy-Spiel</a>, um Flexbox zu lernen.
+                     Implementieren Sie dann ausschließlich mit HTML und CSS Flexbox folgendes responsive Webdesign nach der Desktop-First-Strategie.</p>
+                 <p>Felxbox code:</p>
+                 <xmp>
+                     <!DOCTYPE html>
+                     <html lang="en">
+                     <head>
+                         <meta charset="UTF-8">
+                         <title>Desktop-First</title>
+                         <style>
+                             *{
+                                 box-sizing: border-box;
+                             }
+
+                             body{
+                                 display:flex;
+                                 flex-wrap: wrap;
+                                 height: 100vh;
+                                 margin: 0;
+                             }
+
+                             #red{
+                                 height: 20%;
+                                 width: 100%;
+                                 background-color: red;
+                             }
+
+                             #blue{
+                                 height: 80%;
+                                 width: 60%;
+                                 background-color: #264de4;
+                             }
+
+                             #green, #pink {
+                                 height: 80%;
+                                 width: 20%;
+                             }
+
+                             #green{
+                                 background-color: greenyellow;
+                             }
+
+                             #pink{
+                                 background-color: deeppink;
+                             }
+
+                             @media screen and (max-width: 600px) {
+                                 #pink{width: 100%; height: 20%}
+                                 #blue{width: 80%; height: 140%}
+                                 #green{height:140%}
+                             }
+
+                             @media screen and (max-width: 300px){
+                                 #green, #pink{widtht:100%;height: 20%}
+                                 #blue{widht: 100%; height: 140%}
+                             }
+
+                         </style>
+                     </head>
+                     <body>
+                     <div id="red"></div>
+                     <div id="green"></div>
+                     <div id="blue"></div>
+                     <div id="pink"></div>
+                     </body>
+                     </html>
+                 </xmp>
+                 <a href="../tasks/RWD/desktopfirst.html" class="show_solution" target="_blank">Lösung</a>
+             </div>
+             <hr>
+             <div class="task">
+                 <h2>Grid Mobile-First</h2>
+                 <p>Spielen Sie zunächst das Grid Garden-Spiel, um Grid Layout zu lernen.
+                     Implementieren Sie dann das gleiche responsive Webdesign wie in Aufgabe
+                     3.1 allerdings mit Grid und der Mobile-First-Strategie. Vermeiden Sie außerdem das Erscheinen von horizontalen
+                     Scrollbars so weit wie möglich. </p>
+                 <p>Grid Code:</p>
+                 <xmp>
+                     <style>
+                         body {
+                             display: grid;
+                             margin: 0;
+                             grid-template-rows: 20% 20% 100% 20%;
+                             grid-template-areas:"r" "g" "b" "p";
+                             height : 100vh;
+                         }
+                         #red{
+                             background-color: red;
+                             grid-area: r;
+                         }
+                         #green{
+                             background-color: greenyellow;
+                             grid-area: g;
+                         }
+                         #pink{
+                             background-color: deeppink;
+                             grid-area: p;
+                         }
+
+                         #blue{
+                             background-color: #264de4;
+                             grid-area: b;
+                         }
+
+                         @media screen and (min-width: 300px){
+                             body{
+                                 grid-template-columns: 20% 80%;
+                                 grid-template-rows: 20% 80% 20%;
+                                 grid-template-areas: "r r" "g b" "p p"
+                             }
+                         }
+                         @media screen and (min-width: 600px){
+                             body {
+                                 grid-template-columns: 20% 60% 20%;
+                                 grid-template-rows: 20% 80%;
+                                 grid-template-areas: "r r r" "g b p"
+                             }
+
+                         }
+
+                     </style>
+                 </xmp>
+                 <a href="../tasks/RWD/mobildefirst.html" class="show_solution" target="_blank">Lösung</a>
+             </div>
+             <hr>
+             <div class="task">
+                 <h2>Responsive mit Grid</h2>
+                 <p>Implementieren Sie folgende Landing Page responsiv
+                     mit Grid Layout. Vermeiden Sie auch hier das Erscheinen von horizontalen
+                     Scrollbars so weit wie möglich</p>
+                 <img src="../images/img.png" alt="Ein schönes Bild">
+                 <p>Code:</p>
+                 <xmp>
+                     <style>
+                         *{
+                             box-sizing: border-box;
+                             font-family: Verdana, sans-serif;
+                         }
+
+                         body{
+                             display: grid;
+                             grid-template-columns: 1fr 1fr;
+                             grid-template-rows: 7% 8% 66% 19%;
+                             grid-template-areas: "nav nav" "header header" "left right" "footer footer";
+                             height: 100vh;
+                             margin: 0;
+                         }
+
+                         .nav{
+                             grid-area: nav;
+                             background-color: #373636;
+                             display: flex;
+                             justify-content: center;
+                             align-items: center;
+                         }
+
+                         .header{
+                             grid-area: header;
+                             background-color: #ebeae6;
+                             display: flex;
+                             justify-content: center;
+                             align-items: end;
+                         }
+
+                         .left{
+                             grid-area: left;
+                             background-color: #ebeae6;
+                             display: flex;
+                             justify-content: center;
+                             align-items: center;
+                         }
+
+                         .right{
+                             grid-area: right;
+                             background-color: #ebeae6;
+                             display: flex;
+                             flex-direction: column;
+                             justify-content: center;
+                             align-items: center;
+
+                         }
+
+                         .footer{
+                             grid-area: footer;
+                             background-color: #061825;
+                             display: flex;
+                             flex-direction: column;
+                             justify-content: center;
+                             align-items: center;
+                         }
+
+                         .nav > a{
+                             color:white;
+                             text-decoration: none;
+                             margin: 10px;
+                         }
+
+                         .nav > a:hover{
+                             text-decoration: underline;
+                         }
+
+                         .header span{
+                             font-size: 30px;
+
+                         }
+
+                         .left img{
+                             height: 80%;
+                             width: auto;
+                             border-radius: 10px;
+                             border: 1px solid black;
+                         }
+
+                         button{
+                             background-color: orange;
+                             border: none;
+                             border-radius: 5px;
+                             color: white;
+                         }
+
+                         .right button{
+                             width: 35%;
+                             height: 5%;
+                             text-align: center;
+                             margin-top: 10px;
+                         }
+
+                         .footer button{
+                             width: 30%;
+                             padding: 10px;
+                         }
+
+                         .footer span{
+                             color: white;
+                             margin-top: 20px;
+                             margin-bottom: 15px;
+                         }
+                     </style>
+                 </xmp>
+                 <a href="../tasks/RWD/responsive.html" class="show_solution" target="_blank">Lösung</a>
+             </div>
+         </div>
         </main>
         <article></article>
     </content>

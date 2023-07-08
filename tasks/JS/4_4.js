@@ -1,4 +1,4 @@
-function topSort(array) {
+export function topSort(array) {
     let nodes = {};
 
     array.forEach(row => row.forEach(col => {     //get all nodes
@@ -22,7 +22,7 @@ function topSort(array) {
 
 }
 
-function predecessors(node, array) {
+export function predecessors(node, array) {
     let predecessors = [];
     array.forEach(pair => {
         if (pair[1] === node && !predecessors.includes(pair[0])) predecessors.push(pair[0]);
@@ -30,7 +30,7 @@ function predecessors(node, array) {
     return predecessors;
 }
 
-function del(node, nodes) {  // delete node in all lists
+export function del(node, nodes) {  // delete node in all lists
 
     Object.keys(nodes).forEach(k => {
         if (nodes[k].includes(node)) {
@@ -38,6 +38,8 @@ function del(node, nodes) {  // delete node in all lists
         }
     });
 }
+
+
 
 let x = [["unterhose", "hose"], ["socken", "schuhe"], ["hose", "mantel"], ["unterhemd", "pulli"], ["pulli", "mantel"], ["hose", "schuhe"]];
 

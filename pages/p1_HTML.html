@@ -33,14 +33,8 @@
 
 </header>
 <content>
-    <aside>
-        <ul>
-            <li>text</li>
-            <li>text</li>
-            <li>text</li>
-            <li>text</li>
-            <li>text</li>
-        </ul>
+    <aside >
+
     </aside>
     <main>
         <h1>HTML Übung</h1>
@@ -192,8 +186,67 @@
         <hr>
         <div class="task">
             <h2>HTML Wireframe</h2>
-            <a class="show_solution" href="../tasks/HTML/investors_of_the_web.html">Lösung</a>
+            <a class="show_solution" href="../tasks/HTML/investors_of_the_web.html" target="_blank">Lösung</a>
         </div>
+
+        <div class="task">
+            <h2>CSS-Positionierung</h2>
+            <p>Bauen Sie das dynamische Verhalten in den folgenden beiden Videos exakt nach:</p>
+            <ul>
+                <li class="li"><a href="https://www.youtube.com/watch?v=PE3POxjDspo" target="_blank">sticky</a></li>
+                <li class="li"><a href="https://www.youtube.com/watch?v=HVmnv3k4__E" target="_blank">checkbox</a></li>
+            </ul>
+            <p>Arbeiten Sie in beiden Fällen nur mit HTML und CSS, ohne JavaScript.</p>
+            <hr>
+            <p>Code for sticky:</p>
+
+                <xmp>
+                    <style>
+                        img {
+                            width: 95vw;
+                            hight: 70vh;
+                            margin: 5px;
+                            visibility: hidden;
+                        }
+
+                        input:checked ~ div > img {
+                            visibility: visible;
+                        }
+
+                        div {
+                            border: 1px solid black;
+                            display: inline-block;
+                        }
+                    </style>
+                </xmp>
+
+
+            <hr>
+            <p>Code for checkbox:</p>
+            <xmp>
+                <style>
+                    img {
+                        width: 95vw;
+                        hight: 70vh;
+                        margin: 5px;
+                        visibility: hidden;
+                    }
+
+                    input:checked ~ div > img {
+                        visibility: visible;
+                    }
+
+                    div {
+                        border: 1px solid black;
+                        display: inline-block;
+                    }
+                </style>
+            </xmp>
+            <a class="show_solution" href="../tasks/CSS_1/pos_2.html" target="_blank">Lösung</a>
+        </div>
+
+
+
     </main>
     <article></article>
 

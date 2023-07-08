@@ -6,7 +6,11 @@ h1{
     padding: 20px;
 }
 
-div.task{
+main{
+    overflow-x: auto;
+}
+
+.task{
     background-color: aliceblue;
     border-color: #394352;
     border-radius: 25px;
@@ -73,11 +77,24 @@ code{
 
 xmp{
     background-color: #394352;
+    height: 350px;
+    width: 100%;
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
     font-family: "Arial Narrow";
     color: white;
+    overflow-y: auto ;
+}
+
+.code-box {
+    width: 100%;
+    height: 200px;
+    overflow-x: auto;
+    white-space: pre;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border: 1px solid #ccc;
 }
 
 .show_solution{
@@ -91,8 +108,14 @@ xmp{
     text-decoration: none;
 }
 
+
 .show_solution:hover{
     font-size: 20px;
     padding: 15px;
 }
+
+
+
+
+
 

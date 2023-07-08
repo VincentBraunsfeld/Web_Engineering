@@ -325,4 +325,34 @@ function displayContent(id){
             </div>
         </div>`;
     }
+    reloadScripts();
+}
+
+function reloadScripts() {
+
+    const scriptSources = [
+        "../js_files/hamburger.js",
+        "../js_files/toggleDiv.js",
+        "../js_files/scrollToTopBtn.js",
+        "../js_files/content.js",
+        "../tasks/JS/4_1.js",
+        "../tasks/JS/4_2.js",
+        "../tasks/JS/4_3.js",
+        "../tasks/DOM/topsort.js",
+        "../tasks/DOM/performance.js",
+        "../tasks/DOM/redner.js",
+        "../tasks/ECMAScript/klammerpaare.js",
+        "../tasks/ECMAScript/TopologischeIterierbarkeit.js"
+    ];
+
+    scriptSources.forEach(src => {
+        const existingScript = document.querySelector(`script[src="${src}"]`);
+        existingScript.remove();
+
+        const newScript = document.createElement("script");
+        newScript.src = src;
+        newScript.defer = true;
+        document.head.appendChild(newScript);
+
+    });
 }

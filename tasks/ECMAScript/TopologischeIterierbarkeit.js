@@ -1,5 +1,5 @@
-const iterator_input = document.getElementById("iterator_input");
-const iterator_button = document.getElementById("iterator_button");
+//const iterator_input = document.getElementById("iterator_input");
+//const iterator_button = document.getElementById("iterator_button");
 
 
 

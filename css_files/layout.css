@@ -7,9 +7,10 @@
 body{
     margin: 0;
     display: grid;
-    height: 100vh;
+    height: 100%;
     grid-template-rows: 70px auto 80px ;
     grid-template-areas: "header" "content" "footer";
+    overflow: auto;
 }
 
 header{
@@ -174,8 +175,8 @@ footer{
 
 @media screen and (max-width: 800px){
     content{
-        grid-template-columns: 1fr 4fr 20px;
-        grid-template-areas: "aside main article";
+        grid-template-columns: 1fr 4fr;
+        grid-template-areas: "aside main";
     }
 
     .hamburger{
