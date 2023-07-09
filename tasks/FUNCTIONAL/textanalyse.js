@@ -1,3 +1,19 @@
+const text_span = document.getElementById('text-span');
+const text_input = document.getElementById('text-input');
+const text_button = document.getElementById('text-button');
+
+const text_p = document.createElement('p');
+text_p.classList.add('result');
+text_span.appendChild(text_p);
+
+text_button.addEventListener('click', () =>{
+    console.log(textAna(text_input.value));
+    text_p.textContent = JSON.stringify(textAna(text_input.value));
+})
+
+
+
+
 let text = `
 
 <!DOCTYPE html>
@@ -1943,6 +1959,10 @@ zwölf`;
 
 stopwords_arr = stopwords.split('\n');
 
+
+function textAna(text){
+
+
 //replace all html tags (regex)
 text = text.replaceAll(/<\/?[^>]+(>|$)/g, "");
 //replace all line breaks
@@ -1975,7 +1995,11 @@ words.forEach(word => {
     }
     obj[word] = counter;
     result.push(obj);
-})
+});
+    if(result.length < 4) return result;
+
+    return helper(result);
+}
 
 //bestimmt die drei Wörter, die am häufigsten vorkommen
 function helper(arr) {
@@ -1993,7 +2017,7 @@ function helper(arr) {
 
 }
 
-console.log(helper(result));
+console.log(textAna('und'));
 
 
 

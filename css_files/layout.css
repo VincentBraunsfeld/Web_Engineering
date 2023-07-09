@@ -81,6 +81,7 @@ content{
 
 }
 
+
 aside {
     grid-area: aside;
     position: static;
@@ -98,22 +99,25 @@ aside {
 }
 
 aside ul {
-    margin: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin: 120px 0 0;
     padding-left: 0;
-    width: 100%;
     top: 70px;
+    z-index: 0;
 }
 
 
 aside ul li{
+    font-size: 1rem;
     display : block;
-    padding: 10px calc(5% + 10px); /* Padding abhängig von der Seitenleiste */
+    padding: 5px 10px;
     margin-bottom: 20px;
     border-radius: 30px;
 }
 
 aside ul li:hover{
-    font-size: 1.5rem;
     cursor: pointer;
     background-color: #296fdc;
     color: white;
@@ -233,6 +237,8 @@ footer{
     }
 
     aside ul{
+        position: static;
+        margin-top: 0;
         display: block;
         justify-content: center;
         width: 100%;

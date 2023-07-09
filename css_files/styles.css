@@ -159,3 +159,7 @@ code{
     font-size: 14px;
     white-space: pre;
 }
+
+a:hover{
+    color: #d54a4a;
+}
