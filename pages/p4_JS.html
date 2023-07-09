@@ -883,549 +883,699 @@ function addRedner(speaker_name) {
                  </pre>
             </div>
         </div>-->
-        <!-- <div id="ECMAScript">
-            <div id="6.1">
-                <h2>6.1. Klammerpaare</h2>
-                <p>
-                    Schreiben Sie eine Webseite, in die man eine Zeichenkette mit beliebigen Buchstaben,
-                    Zahlen und Sonderzeichen eingeben kann, die beliebig geschachtelte Klammern [...], (...) und {...}
-                    enthält,
-                    sodass sofort geprüft wird, ob alle Klammerpaare korrekt geschachtelt sind.
-                    Das Eingabefeld der Zeichenkette soll rot gefärbt werden, wenn es ein Klammerpaar gibt,
-                    das falsch geschachtelt ist. Verwenden Sie für Ihre Tests die Funktion console.assert.
-                </p>
-                <input type="text" id="brackets_input">
-                <button onclick="toggleDiv(this)">code</button>
-                <div class="toggleDiv" style="display: none;">
-                        <pre>
-                            const brackets_input = document.getElementById("brackets_input");
-                            brackets_input.addEventListener('keyup', () => {brackets_input.style.background = check(brackets_input.value) ? 'green' : 'red'});
+        <!--<div id="ECMAScript">
+        <h1>ECMAScript</h1>
+        <div id="6.1" class="task">
+            <h2>6.1. Klammerpaare</h2>
+            <p>
+                Schreiben Sie eine Webseite, in die man eine Zeichenkette mit beliebigen Buchstaben,
+                Zahlen und Sonderzeichen eingeben kann, die beliebig geschachtelte Klammern [...], (...) und {...}
+                enthält, sodass sofort geprüft wird, ob alle Klammerpaare korrekt geschachtelt sind.
+                Das Eingabefeld der Zeichenkette soll rot gefärbt werden, wenn es ein Klammerpaar gibt,
+                das falsch geschachtelt ist. Verwenden Sie für Ihre Tests die Funktion <code class="red-code">console.assert</code>.
+            </p>
 
-                            function check(value) {
-                                let openBrackets = [];
-                                for (let char of value) {
-                                    if (['(', '[', '{'].includes(char)) openBrackets.push(char);
-                                    if (['}', ']', ')'].includes(char)) {
-                                        if(openBrackets.length === 0) return false;
-                                        let temp = openBrackets.pop();
-                                        if(temp === '(' && char===')' ) continue;
-                                        if(temp === '[' && char===']' ) continue;
-                                        if(temp === '{' && char==='}' ) continue;
-                                        return false;
-                                    }
-                                }
-                                return openBrackets.length === 0 ? true : false;
-                            }
-
-                            console.assert(true, '()');
-                            console.assert(true,'{[()]}');
-                            console.assert(true, '[((){[{}]})[]]')
-                            console.assert(false, '([)]')
-                        </pre>
-                </div>
-            </div>
-            <div id="6.2">
-            <h3>6.2. Topologische Iterierbarkeit </h3>
-                <span>
-                    <input type="text" id="iterator_input">
-                    <button id="iterator_button"></button>
-                </span>
-
-            </div>
-        </div>-->
-
-        <div id="functional">
-            <h1>Funktional</h1>
-            <div id="7.1" class="task">
-                <h2>7.1. Funktionen in JavaScript</h2>
-                <hr>
-                <div id="7.1.1">
-                    <h3>7.1.1 identity_function</h3>
-                    <p>Schreiben Sie eine Funktion <code class="red-code">identity_function</code>,
-                        die einen Parameter entgegennimmt und eine Funktion zurückgibt, die dieses Argument zurückgibt.
-                    </p>
-                    <p>code identity_function:</p>
-                    <pre>
-                      <code>
-const identity_function = x => () => x;
-
-//Beispielanwendung
-// const id = identity_function(5);
-// console.log(id);
-                      </code>
-                  </pre>
-                </div>
-                <hr>
-                <div id="7.1.2">
-                    <h3>7.1.2 addf</h3>
-                    <p>
-                        Schreiben Sie eine Funktion addf, sodass <code class="red-code">addf(x)(y)</code> genau <code
-                            class="red-code">x + y </code>zurückgibt.
-                        (Es haben also zwei Funktionsaufrufe zu erfolgen. <code class="red-code">addf(x)</code> liefert
-                        eine Funktion, die auf <code class="red-code">y</code> angewandt wird.)
-                    </p>
-                    <p>code addf:</p>
-                    <pre>
-                          <code>
-const addf = x => y => x + y;
-
-//Beispiel
-//console.log(addf(4)(5));  result = 9
-                          </code>
-                      </pre>
-                </div>
-                <hr>
-                <div id="7.1.3">
-                    <h3>7.1.3 applyf</h3>
-                    <p>
-                        Schreiben Sie eine Funktion <code class="red-code">applyf</code>, die aus einer binären Funktion
-                        wie <code class="red-code">add(x,y)</code>
-                        eine Funktion <code class="red-code">addf</code> berechnet, die mit zwei Aufrufen das gleiche
-                        Ergebnis liefert,
-                        z.B. <code class="red-code">addf = applyf(add); addf(x)(y)</code> soll <code class="red-code">add(x,y)</code>
-                        liefern. Entsprechend soll
-                        <code class="red-code">applyf(mul)(5)(6)</code> für Multiplikation <code
-                            class="red-code">30</code> liefern.
-                    </p>
-                    <p>code apply:</p>
-                    <pre>
-                          <code>
-const add = (x, y) => x + y;
-
-const mul = (x, y) => x * y;
-
-const applyf = bin_f => x => y => bin_f(x, y);
-
-//Beispiel
-//console.log(applyf(add)(5)(6)); result = 11
-//console.log(applyf(mul)(5)(6)); result = 30
-                          </code>
-                      </pre>
-                </div>
-                <hr>
-                <div id="7.1.4">
-                    <h3>7.1.4 curry</h3>
-                    <p>
-                        Schreiben Sie eine Funktion <code class="red-code">curry</code>(von Currying), die eine binäre
-                        Funktion und ein Argument nimmt,
-                        um daraus eine Funktion zu erzeugen, die ein zweites Argument entgegennimmt.
-                        Beispiele: <code class="red-code">add3 = curry(add, 3); add3(4) ergibt 7</code> und <code
-                            class="red-code">curry(mul, 5)(6)</code>
-                        ergibt <code class="red-code">30</code>.
-                    </p>
-                    <p>code curry:</p>
-                    <pre>
-                          <code>
-const curry = (bin_f, x) => y => bin_f(x, y);
-
-//Beispiel
-//console.log(curry(add, 4)(5)); result = 9;
-//console.log(curry(mul, 4)(5)); result = 20;
-                          </code>
-                      </pre>
-                </div>
-                <hr>
-                <div id="7.1.5">
-                    <h3>7.1.5 inc</h3>
-                    <p>
-                        Erzeugen Sie die <code class="red-code">inc</code>-Funktion mit Hilfe einer der Funktionen <code
-                            class="red-code">addf</code>,
-                        <code class="red-code">applyf</code> und <code class="red-code">curry</code> aus den letzten
-                        Aufgaben, ohne die Funktion
-                        <code class="red-code">inc</code> selbst zu implementieren. <code class="red-code">inc(x)</code>
-                        soll immer <code class="red-code">x + 1</code>x + 1 zurückgeben und
-                        lässt sich natürlich auch direkt implementieren. Das ist aber hier nicht die Aufgabe.
-                        Vielleicht schaffen Sie es, drei Varianten der <code class="red-code">inc</code>-Implementierung
-                        zu schreiben?
-                    </p>
-                    <p>code inc:</p>
-                    <pre>
-                          <code>
-const inc1 = x => addf(x)(1);
-
-const inc2 = x => applyf(add)(x)(1);
-
-const inc3 = x => curry(add, x)(1);
-
-// Beispiel
-// console.log(inc1(2)); result = 3
-// console.log(inc2(2)); result = 3
-// console.log(inc3(2)); result = 3
-                          </code>
-                      </pre>
-                </div>
-                <hr>
-                <div id="7.1.6">
-                    <h3>7.1.6 methodize</h3>
-                    <p>
-                        Schreiben Sie eine Funktion <code class="red-code">methodize</code>, die eine binäre Funktion
-                        (z.B. <code class="red-code">add</code> oder <code class="red-code">mul</code>) in eine unäre
-                        Methode verwandelt.
-                        Nach <code class="red-code">Number.prototype.add = methodize(add)</code> soll <code
-                            class="red-code">(3).add(4)</code>
-                        genau <code class="red-code">7</code> ergeben.
-                    </p>
-                    <p>code methodize:</p>
-                    <pre>
-                          <code>
-const methodize = bin_f => function (y) {
-    return bin_f(this, y)
-};
-
-// Beispiel
-//Number.prototype.add = methodize(add);
-//console.log((3).add(4));  //result = 7
-                          </code>
-                      </pre>
-                </div>
-                <hr>
-                <div id="7.1.7">
-                    <h3>7.1.7 demethodize</h3>
-                    <p>
-                        Schreiben Sie eine Funktion <code class="red-code">demethodize</code>,
-                        die eine unäre Methode (z.B. <code class="red-code">add</code> oder <code
-                            class="red-code">mul</code>) in eine binäre Funktion umwandelt.
-                        <code class="red-code">demethodize(Number.prototype.add)(5, 6)</code>
-                        soll <code class="red-code">11</code> ergeben.
-                    </p>
-                    <p>code demethodize:</p>
-                    <pre>
-                          <code>
-const demethodize = method => function (x, y) {
-    return method.call(x, y);
-};
-
-// Beispiel
-// Number.prototype.add = function (y) {
-//     return this.valueOf() + y;
-// };
-//console.log(demethodize(Number.prototype.add)(5, 6));  result 11
-                          </code>
-                      </pre>
-                </div>
-                <hr>
-                <div id="7.1.8">
-                    <h3>7.1.8 twice</h3>
-                    <p>
-                        Schreiben Sie eine Funktion <code class="red-code">twice</code>, die eine binäre Funktion in
-                        eine unäre Funktion umwandelt,
-                        die den einen Parameter zweimal weiter reicht. Also z.B. <code class="red-code">var double = twice(add); double(11)</code>
-                        soll <code class="red-code">22</code> ergeben und <code class="red-code">var square = twice(mul); square(11)</code> soll <code class="red-code">mul(11,11) === 121</code> ergeben.
-                    </p>
-                    <p>code twice:</p>
-                    <pre>
-                          <code>
-const twice = bin_f => x => bin_f(x, x);
-
-//Beispiel
-//const double = twice(add);
-//const square = twice(mul);
-// console.log(twice(add)(11)); result = 22
-// console.log(double(11)); result = 22
-// console.log(square(11)); result = 121
-                          </code>
-                      </pre>
-                </div>
-                <hr>
-                <div id="7.1.9">
-                    <h3>7.1.9 composeu</h3>
-                    <p>
-                        Schreiben Sie eine Funktion <code class="red-code">composeu</code>,
-                        die zwei unäre Funktionen in eine einzelne unäre Funktion transformiert,
-                        die beide nacheinander aufruft. Also z.B. soll <code class="red-code">composeu(double, square)(3)</code>
-                        genau <code class="red-code">36</code> ergeben.
-                    </p>
-                    <p>code composeu:</p>
-                    <pre>
-                          <code>
-const compseu = (un_f1, un_f2) => x => un_f2(un_f1(x));
-
-//Beispiel
-//console.log(compseu(double, square)(3)); result = 36
-                          </code>
-                      </pre>
-                </div>
-                <hr>
-                <div id="7.1.10">
-                    <h3>7.1.10 composeb</h3>
-                    <p>
-                        Schreiben Sie eine Funktion <code class="red-code">composeb</code>, die zwei binäre Funktionen in eine einzelne Funktion transformiert,
-                        die beide nacheinander aufruft. Also z.B. <code class="red-code">composeb(add, mul)(2, 3, 5)</code> soll
-                        <code class="red-code">25</code> ergeben.
-                    </p>
-                    <p>code composeb:</p>
-                    <pre>
-                          <code>
-const composeb = (bin_f1, bin_f2) => (x, y, z) => bin_f2(bin_f1(x, y), z);
-
-//Beispiel
-//console.log(composeb(add, mul)(2, 3, 5)); result = 25
-                          </code>
-                      </pre>
-                </div>
-                <hr>
-                <div id="7.1.11">
-                    <h3>7.1.11 once</h3>
-                    <p>
-                        Schreiben Sie eine Funktion <code class="red-code">once</code>, die einer anderen Funktion nur
-                        einmal erlaubt, aufgerufen zu werden. Also z.B. <code class="red-code">add_once = once(add); add_once(3, 4)</code>
-                        soll beim ersten Mal <code class="red-code">7</code> ergeben, beim zweiten
-                        Mal soll jedoch <code class="red-code">add_once(3, 4)</code> einen Fehlerabbruch bewirken.
-                    </p>
-                    <p>code once:</p>
-                    <pre>
-                          <code>
-const once = f => {
-    let called = false;
-
-    return (...params) => {
-        if (called) {
-            throw new Error('Die Funktion darf nur einmal aufgerufen werden.');
-        }
-
-        called = true;
-        return f(...params);
-    };
-};
-
-// Beispiel
-// const add_once = once(add);
-// console.log(add_once(3, 4)); result = 7
-// console.log(add_once(3, 4)); // Die Funktion darf nur einmal aufgerufen werden
-
-                          </code>
-                      </pre>
-                </div>
-                <hr>
-                <div id="7.1.12">
-                    <h3>7.1.12 counterf</h3>
-                    <p>
-                        Schreiben Sie eine Fabrik-Funktion counterf,
-                        die zwei Funktionen <code class="red-code">inc</code> und <code class="red-code">dec</code>
-                        berechnet, die einen Zähler
-                        hoch- und herunterzählen.
-                        Also z.B. <code class="red-code">counter = counterf(10)</code>.
-                        Dann soll <code class="red-code">counter.inc()</code> genau <code class="red-code">11</code> und
-                        <code class="red-code">counter.dec()</code>
-                        wieder <code class="red-code">10</code> ergeben.
-                    </p>
-                    <p>code counterf</p>
-                    <pre>
-                          <code>
-function counterf(x){
-    return {
-        x,
-        dec(){
-            return --x;
-        },
-        inc(){
-            return ++x;
-        }
-    }
-}
-
-//Beispiel
-// const counter = counterf(10);
-// console.log(counter.dec()); result = 9
-// console.log(counter.inc()); result = 10
-                          </code>
-                      </pre>
-                </div>
-                <hr>
-                <div id="7.1.13">
-                    <h3>7.1.13 revocable</h3>
-                    <p>
-                        Schreiben Sie eine rücknehmbare Funktion <code class="red-code">revocable</code>,
-                        die als Parameter eine Funktion nimmt und diese bei Aufruf ausführt.
-                        Sobald die Funktion aber mit <code class="red-code">revoke()</code> zurückgenommen wurde, führt
-                        ein erneuter Aufruf zu einem Fehler.
-                        Also z.B.:
-                    <ul>
-                        <li><code class="red-code">temp = revocable(alert);</code></li>
-                        <li><code class="red-code">temp.invoke(7); // führt zu alert(7);</code></li>
-                        <li><code class="red-code">temp.revoke();</code></li>
-                        <li><code class="red-code">temp.invoke(8); // Fehlerabbruch!</code></li>
-                    </ul>
-                    </p>
-                    <p>code revocable:</p>
+            <input type="text" id="brackets_input" class="custom-input">
+            <button onclick="toggleDiv(this)" class="custom-button">code</button>
+            <div class="toggleDiv" style="display: none;">
                     <pre>
                         <code>
-function revocable(f) {
-    return {
-        isRevoked: false,
-        invoke(...params) {
-            if (this.isRevoked) {
-                throw new Error('Die Funktion wurde widerrufen.');
-            }
-            return f(...params);
-        },
-        revoke() {
-            this.isRevoked = true;
+const brackets_input = document.getElementById("brackets_input");
+brackets_input.addEventListener('keyup', () => {brackets_input.style.background = check(brackets_input.value) ? 'green' : 'red'});
+
+function check(value) {
+    let openBrackets = [];
+    for (let char of value) {
+        if (['(', '[', '{'].includes(char)) openBrackets.push(char);
+        if (['}', ']', ')'].includes(char)) {
+            if(openBrackets.length === 0) return false;
+            let temp = openBrackets.pop();
+            if(temp === '(' && char===')' ) continue;
+            if(temp === '[' && char===']' ) continue;
+            if(temp === '{' && char==='}' ) continue;
+            return false;
         }
-    };
+    }
+    return openBrackets.length === 0 ? true : false;
 }
 
-// Beispiel
-// const temp = revocable(add);
-// console.log(temp.invoke(4, 5));  result = 9
-// temp.revoke();
-// console.log(temp.invoke(4, 8));  Fehler
+
+console.assert(true, '()');
+console.assert(true,'{[()]}');
+console.assert(true, '[((){[{}]})[]]')
+console.assert(false, '([)]')
                         </code>
                     </pre>
-                </div>
-                <hr>
-                <div id="7.1.14">
-                    <h3>7.1.14 vector</h3>
-                    <p>
-                        Schreiben Sie ein "Array Wrapper"-Objekt mit den Methoden
-                        <code class="red-code">get</code>, <code class="red-code">store</code> und <code
-                            class="red-code">append</code>,
-                        sodass ein Angreifer keinen Zugriff auf das innere, private Array hat. Also z.B.:
-                    <ul>
-                    <li><code class="red-code">my_vector = vector();</code></li>
-                    <li><code class="red-code">my_vector.append(7);</code></li>
-                    <li><code class="red-code">my_vector.store(1, 8);</code></li>
-                    <li><code class="red-code">my_vector.get(0); // 7</code></li>
-                    <li><code class="red-code">my_vector.get(1); // 8</code></li>
-                    </ul>
-                    </p>
-                    <p>code vector:</p>
-                    <pre>
-                        <code>
-function vector(){
-    const data = []
-
-    return{
-        append(value){
-            data.push(value);
-        },
-        store(index, value){
-            data[index] = value;
-        },
-        get(index){
-            return data[index];
-        }
-    }
-}
-
-//Beispiel
-// my_vector = vector();
-// my_vector.append(7);
-// my_vector.store(1, 8);
-// console.log(my_vector.get(0)); result = 7
-// console.log(my_vector.get(1)); result = 8
-                        </code>
-                    </pre>
-                </div>
-            </div>
-            <hr>
-            <div id="7.2" class="task">
-                <h2>7.2. Textanalyse mit filter-map-reduce</h2>
-                <p>
-                    Schreiben Sie in JavaScript eine Textanalyse.
-                    Ermitteln Sie die häufigsten Begriffe im Text <a href="https://kaul.inf.h-brs.de/ccm/we/ws22/resources/assets/Plagiatsresolution.html" target="_blank">Plagiatsresolution</a>.
-                    Filtern Sie dabei alle <a href="https://de.wikipedia.org/wiki/Stoppwort" target="_blank">Stoppworte</a> und HTML-Tags. Reduzieren Sie das Ergebnis auf die 3 häufigsten Begriffe.
-                </p>
-                <span id="text-span">
-                    <input id="text-input" type="text" class="custom-input" placeholder="type our text in">
-                    <button id="text-button" class="custom-button">ausführen</button>
-                </span>
-                <hr>
-                <p>code Textanalyse:</p>
-                <pre>
-                    <code>
-const text_span = document.getElementById('text-span');
-const text_input = document.getElementById('text-input');
-const text_button = document.getElementById('text-button');
-
-const text_p = document.createElement('p');
-text_p.classList.add('result');
-text_span.appendChild(text_p);
-
-text_button.addEventListener('click', () =>{
-    console.log(textAna(text_input.value));
-    text_p.textContent = JSON.stringify(textAna(text_input.value));
-})
-
-
-let stopwords = '...';
-
-stopwords_arr = stopwords.split('\n');
-
-
-function textAna(text){
-
-
-//replace all html tags (regex)
-text = text.replaceAll(/<\/?[^>]+(>|$)/g, "");
-//replace all line breaks
-text = text.replaceAll('\n', '');
-text = text.replaceAll('.', '');
-text = text.replaceAll('-', '');
-text = text.replaceAll(',', '');
-
-
-text_arr = text.split(' ');
-text_arr = text_arr.filter(word => word !== '');
-
-text_arr = text_arr.filter(word => !stopwords_arr.includes(word));
-
-let words = [];
-
-text_arr.forEach(word => {
-    if (!words.includes(word)) words.push(word);
-});
-
-//all pairs with occurrence
-let result = [];
-words.forEach(word => {
-    let counter = 0;
-    let obj = {};
-    for (let w of text_arr) {
-        if (w == word) {
-            counter++;
-        }
-    }
-    obj[word] = counter;
-    result.push(obj);
-});
-    if(result.length < 4) return result;
-
-    return helper(result);
-}
-
-//bestimmt die drei Wörter, die am häufigsten vorkommen
-function helper(arr) {
-    res = [];
-    let i = 0
-    while (i < 3) {
-
-        const temp = arr.filter(obj =>  !res.includes(obj))
-            .reduce((a, b) => Math.max(a, Object.values(b)[0]), 0);
-
-        res.push(arr.filter(obj => Object.values(obj)[0] === temp)[0]);
-        i++;
-    }
-    return res;
-
-}
-
-console.log(textAna('und'));
-
-
-
-
-
-
-
-                    </code>
-                </pre>
-
             </div>
         </div>
+        <hr>
+        <div id="6.2" class="task">
+            <h2>6.2. Topologische Iterierbarkeit </h2>
+            <p>
+                Schreiben Sie eine ES6-Klasse <code class="red-code">Vorrang</code> für Vorrangrelationen.
+                Wählen Sie eine Implementierung, die universell gültig, also nicht nur für dieses Beispiel gilt.
+                (Überlegen Sie sich, über welche Properties und Methoden eine solche Klasse verfügen sollte und
+                wie TopSort hier hineinspielt. Topologische Iterierbarkeit und topologischer Generator sind
+                Gegenstand der nächsten Übungen weiter unten auf diesem Übungsblatt und sollten für
+                die folgenden Aufgaben aufgespart werden.)
+                Stellen Sie bei Ihrer Klasse die topologische Iterierbarkeit her
+                (zunächst über das Iterationsprotokoll, ohne Generator, ohne <code class="red-code">yield</code>).
+            </p>
+            <button onclick="toggleDiv(this)" class="custom-button">code</button>
+            <div class="toggleDiv" style="display: none;">
+                    <pre>
+                        <code>
+class Vorrang {
+    constructor(array) {
+        this.array = array;
+    }
+
+    topSort() {
+        const results = [];
+
+        this.array.forEach((dependency) => {
+            let firstItem = dependency[0];
+            let secondItem = dependency[1];
+
+            if (results.includes(firstItem)) {
+                if (results.includes(secondItem)) {
+                    results.splice(results.indexOf(secondItem), 1); // remove first occurence of secondItem
+                }
+                results.splice(results.indexOf(firstItem) + 1, 0, secondItem); // add the second item in the right position
+            } else if (results.includes(secondItem)) {
+                if (results.includes(firstItem)) {
+                    results.splice(results.indexOf(firstItem), 1);
+                }
+                results.splice(results.indexOf(secondItem), 0, firstItem);
+            } else {
+                results.push(firstItem, secondItem);
+            }
+        });
+
+        return results;
+    }
+
+    [Symbol.iterator]() {
+        const result = this.topSort();
+        let i = 0;
+        return {
+            next() {
+                return {
+                    value: result[i++],
+                    done: i > result.length
+                }
+            }
+        }
+    }
+}
+
+const studentenLeben = new Vorrang([
+    ["schlafen", "studieren"],
+    ["essen", "studieren"],
+    ["studieren", "prüfen"]
+])
+const resul = ["schlafen", "essen", "studieren", "prüfen"];
+let counter = 0
+for (const next of studentenLeben) {
+    console.log(next);
+}
 
 
+
+
+                        </code>
+                    </pre>
+            </div>
+        </div>
+        <hr>
+        <div id="6.3" class="task">
+            <h2>6.3. Topologischer Generator</h2>
+            <p>
+                Stellen Sie bei Ihrer Klasse aus der letzten Aufgabe die topologische Iterierbarkeit mittels Generator her.
+                Wählen Sie eine Implementierung, die universell gültig, also nicht nur für das Beispiel gilt.
+            </p>
+            <button onclick="toggleDiv(this)" class="custom-button">code</button>
+            <div class="toggleDiv" style="display: none;">
+                    <pre>
+                        <code>
+class Vorrang{
+    constructor(array) {
+        this.array = array;
+    }
+    topSort() {
+        const results = [];
+
+        this.array.forEach((dependency) => {
+            let firstItem = dependency[0];
+            let secondItem = dependency[1];
+
+            if (results.includes(firstItem)) {
+                if (results.includes(secondItem)) {
+                    results.splice(results.indexOf(secondItem), 1); // remove first occurence of secondItem
+                }
+                results.splice(results.indexOf(firstItem) + 1, 0, secondItem); // add the second item in the right position
+            } else if (results.includes(secondItem)) {
+                if (results.includes(firstItem)) {
+                    results.splice(results.indexOf(firstItem), 1);
+                }
+                results.splice(results.indexOf(secondItem), 0, firstItem);
+            } else {
+                results.push(firstItem, secondItem);
+            }
+        });
+
+        return results;
+    }
+
+    *gen(){
+        let result = this.topSort();
+        for(const ele of result){
+            yield ele;
+        }
+    }
+}
+
+const studentenLeben = new Vorrang( [
+    [ "schlafen", "studieren" ],
+    [ "essen", "studieren" ],
+    [ "studieren", "prüfen" ]
+] )
+
+for(const next of studentenLeben.gen()){
+    console.log(next);
+}
+                        </code>
+                    </pre>
+            </div>
+
+        </div>
+    </div>-->
+        <!--    <div id="functional">
+              <h1>Funktional</h1>
+              <div id="7.1" class="task">
+                  <h2>7.1. Funktionen in JavaScript</h2>
+                  <hr>
+                  <div id="7.1.1">
+                      <h3>7.1.1 identity_function</h3>
+                      <p>Schreiben Sie eine Funktion <code class="red-code">identity_function</code>,
+                          die einen Parameter entgegennimmt und eine Funktion zurückgibt, die dieses Argument zurückgibt.
+                      </p>
+                      <p>code identity_function:</p>
+                      <pre>
+                        <code>
+  const identity_function = x => () => x;
+
+  //Beispielanwendung
+  // const id = identity_function(5);
+  // console.log(id);
+                        </code>
+                    </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.2">
+                      <h3>7.1.2 addf</h3>
+                      <p>
+                          Schreiben Sie eine Funktion addf, sodass <code class="red-code">addf(x)(y)</code> genau <code
+                              class="red-code">x + y </code>zurückgibt.
+                          (Es haben also zwei Funktionsaufrufe zu erfolgen. <code class="red-code">addf(x)</code> liefert
+                          eine Funktion, die auf <code class="red-code">y</code> angewandt wird.)
+                      </p>
+                      <p>code addf:</p>
+                      <pre>
+                            <code>
+  const addf = x => y => x + y;
+
+  //Beispiel
+  //console.log(addf(4)(5));  result = 9
+                            </code>
+                        </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.3">
+                      <h3>7.1.3 applyf</h3>
+                      <p>
+                          Schreiben Sie eine Funktion <code class="red-code">applyf</code>, die aus einer binären Funktion
+                          wie <code class="red-code">add(x,y)</code>
+                          eine Funktion <code class="red-code">addf</code> berechnet, die mit zwei Aufrufen das gleiche
+                          Ergebnis liefert,
+                          z.B. <code class="red-code">addf = applyf(add); addf(x)(y)</code> soll <code class="red-code">add(x,y)</code>
+                          liefern. Entsprechend soll
+                          <code class="red-code">applyf(mul)(5)(6)</code> für Multiplikation <code
+                              class="red-code">30</code> liefern.
+                      </p>
+                      <p>code apply:</p>
+                      <pre>
+                            <code>
+  const add = (x, y) => x + y;
+
+  const mul = (x, y) => x * y;
+
+  const applyf = bin_f => x => y => bin_f(x, y);
+
+  //Beispiel
+  //console.log(applyf(add)(5)(6)); result = 11
+  //console.log(applyf(mul)(5)(6)); result = 30
+                            </code>
+                        </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.4">
+                      <h3>7.1.4 curry</h3>
+                      <p>
+                          Schreiben Sie eine Funktion <code class="red-code">curry</code>(von Currying), die eine binäre
+                          Funktion und ein Argument nimmt,
+                          um daraus eine Funktion zu erzeugen, die ein zweites Argument entgegennimmt.
+                          Beispiele: <code class="red-code">add3 = curry(add, 3); add3(4) ergibt 7</code> und <code
+                              class="red-code">curry(mul, 5)(6)</code>
+                          ergibt <code class="red-code">30</code>.
+                      </p>
+                      <p>code curry:</p>
+                      <pre>
+                            <code>
+  const curry = (bin_f, x) => y => bin_f(x, y);
+
+  //Beispiel
+  //console.log(curry(add, 4)(5)); result = 9;
+  //console.log(curry(mul, 4)(5)); result = 20;
+                            </code>
+                        </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.5">
+                      <h3>7.1.5 inc</h3>
+                      <p>
+                          Erzeugen Sie die <code class="red-code">inc</code>-Funktion mit Hilfe einer der Funktionen <code
+                              class="red-code">addf</code>,
+                          <code class="red-code">applyf</code> und <code class="red-code">curry</code> aus den letzten
+                          Aufgaben, ohne die Funktion
+                          <code class="red-code">inc</code> selbst zu implementieren. <code class="red-code">inc(x)</code>
+                          soll immer <code class="red-code">x + 1</code>x + 1 zurückgeben und
+                          lässt sich natürlich auch direkt implementieren. Das ist aber hier nicht die Aufgabe.
+                          Vielleicht schaffen Sie es, drei Varianten der <code class="red-code">inc</code>-Implementierung
+                          zu schreiben?
+                      </p>
+                      <p>code inc:</p>
+                      <pre>
+                            <code>
+  const inc1 = x => addf(x)(1);
+
+  const inc2 = x => applyf(add)(x)(1);
+
+  const inc3 = x => curry(add, x)(1);
+
+  // Beispiel
+  // console.log(inc1(2)); result = 3
+  // console.log(inc2(2)); result = 3
+  // console.log(inc3(2)); result = 3
+                            </code>
+                        </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.6">
+                      <h3>7.1.6 methodize</h3>
+                      <p>
+                          Schreiben Sie eine Funktion <code class="red-code">methodize</code>, die eine binäre Funktion
+                          (z.B. <code class="red-code">add</code> oder <code class="red-code">mul</code>) in eine unäre
+                          Methode verwandelt.
+                          Nach <code class="red-code">Number.prototype.add = methodize(add)</code> soll <code
+                              class="red-code">(3).add(4)</code>
+                          genau <code class="red-code">7</code> ergeben.
+                      </p>
+                      <p>code methodize:</p>
+                      <pre>
+                            <code>
+  const methodize = bin_f => function (y) {
+      return bin_f(this, y)
+  };
+
+  // Beispiel
+  //Number.prototype.add = methodize(add);
+  //console.log((3).add(4));  //result = 7
+                            </code>
+                        </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.7">
+                      <h3>7.1.7 demethodize</h3>
+                      <p>
+                          Schreiben Sie eine Funktion <code class="red-code">demethodize</code>,
+                          die eine unäre Methode (z.B. <code class="red-code">add</code> oder <code
+                              class="red-code">mul</code>) in eine binäre Funktion umwandelt.
+                          <code class="red-code">demethodize(Number.prototype.add)(5, 6)</code>
+                          soll <code class="red-code">11</code> ergeben.
+                      </p>
+                      <p>code demethodize:</p>
+                      <pre>
+                            <code>
+  const demethodize = method => function (x, y) {
+      return method.call(x, y);
+  };
+
+  // Beispiel
+  // Number.prototype.add = function (y) {
+  //     return this.valueOf() + y;
+  // };
+  //console.log(demethodize(Number.prototype.add)(5, 6));  result 11
+                            </code>
+                        </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.8">
+                      <h3>7.1.8 twice</h3>
+                      <p>
+                          Schreiben Sie eine Funktion <code class="red-code">twice</code>, die eine binäre Funktion in
+                          eine unäre Funktion umwandelt,
+                          die den einen Parameter zweimal weiter reicht. Also z.B. <code class="red-code">var double = twice(add); double(11)</code>
+                          soll <code class="red-code">22</code> ergeben und <code class="red-code">var square = twice(mul); square(11)</code> soll <code class="red-code">mul(11,11) === 121</code> ergeben.
+                      </p>
+                      <p>code twice:</p>
+                      <pre>
+                            <code>
+  const twice = bin_f => x => bin_f(x, x);
+
+  //Beispiel
+  //const double = twice(add);
+  //const square = twice(mul);
+  // console.log(twice(add)(11)); result = 22
+  // console.log(double(11)); result = 22
+  // console.log(square(11)); result = 121
+                            </code>
+                        </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.9">
+                      <h3>7.1.9 composeu</h3>
+                      <p>
+                          Schreiben Sie eine Funktion <code class="red-code">composeu</code>,
+                          die zwei unäre Funktionen in eine einzelne unäre Funktion transformiert,
+                          die beide nacheinander aufruft. Also z.B. soll <code class="red-code">composeu(double, square)(3)</code>
+                          genau <code class="red-code">36</code> ergeben.
+                      </p>
+                      <p>code composeu:</p>
+                      <pre>
+                            <code>
+  const compseu = (un_f1, un_f2) => x => un_f2(un_f1(x));
+
+  //Beispiel
+  //console.log(compseu(double, square)(3)); result = 36
+                            </code>
+                        </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.10">
+                      <h3>7.1.10 composeb</h3>
+                      <p>
+                          Schreiben Sie eine Funktion <code class="red-code">composeb</code>, die zwei binäre Funktionen in eine einzelne Funktion transformiert,
+                          die beide nacheinander aufruft. Also z.B. <code class="red-code">composeb(add, mul)(2, 3, 5)</code> soll
+                          <code class="red-code">25</code> ergeben.
+                      </p>
+                      <p>code composeb:</p>
+                      <pre>
+                            <code>
+  const composeb = (bin_f1, bin_f2) => (x, y, z) => bin_f2(bin_f1(x, y), z);
+
+  //Beispiel
+  //console.log(composeb(add, mul)(2, 3, 5)); result = 25
+                            </code>
+                        </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.11">
+                      <h3>7.1.11 once</h3>
+                      <p>
+                          Schreiben Sie eine Funktion <code class="red-code">once</code>, die einer anderen Funktion nur
+                          einmal erlaubt, aufgerufen zu werden. Also z.B. <code class="red-code">add_once = once(add); add_once(3, 4)</code>
+                          soll beim ersten Mal <code class="red-code">7</code> ergeben, beim zweiten
+                          Mal soll jedoch <code class="red-code">add_once(3, 4)</code> einen Fehlerabbruch bewirken.
+                      </p>
+                      <p>code once:</p>
+                      <pre>
+                            <code>
+  const once = f => {
+      let called = false;
+
+      return (...params) => {
+          if (called) {
+              throw new Error('Die Funktion darf nur einmal aufgerufen werden.');
+          }
+
+          called = true;
+          return f(...params);
+      };
+  };
+
+  // Beispiel
+  // const add_once = once(add);
+  // console.log(add_once(3, 4)); result = 7
+  // console.log(add_once(3, 4)); // Die Funktion darf nur einmal aufgerufen werden
+
+                            </code>
+                        </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.12">
+                      <h3>7.1.12 counterf</h3>
+                      <p>
+                          Schreiben Sie eine Fabrik-Funktion counterf,
+                          die zwei Funktionen <code class="red-code">inc</code> und <code class="red-code">dec</code>
+                          berechnet, die einen Zähler
+                          hoch- und herunterzählen.
+                          Also z.B. <code class="red-code">counter = counterf(10)</code>.
+                          Dann soll <code class="red-code">counter.inc()</code> genau <code class="red-code">11</code> und
+                          <code class="red-code">counter.dec()</code>
+                          wieder <code class="red-code">10</code> ergeben.
+                      </p>
+                      <p>code counterf</p>
+                      <pre>
+                            <code>
+  function counterf(x){
+      return {
+          x,
+          dec(){
+              return &#45;&#45;x;
+          },
+          inc(){
+              return ++x;
+          }
+      }
+  }
+
+  //Beispiel
+  // const counter = counterf(10);
+  // console.log(counter.dec()); result = 9
+  // console.log(counter.inc()); result = 10
+                            </code>
+                        </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.13">
+                      <h3>7.1.13 revocable</h3>
+                      <p>
+                          Schreiben Sie eine rücknehmbare Funktion <code class="red-code">revocable</code>,
+                          die als Parameter eine Funktion nimmt und diese bei Aufruf ausführt.
+                          Sobald die Funktion aber mit <code class="red-code">revoke()</code> zurückgenommen wurde, führt
+                          ein erneuter Aufruf zu einem Fehler.
+                          Also z.B.:
+                      <ul>
+                          <li><code class="red-code">temp = revocable(alert);</code></li>
+                          <li><code class="red-code">temp.invoke(7); // führt zu alert(7);</code></li>
+                          <li><code class="red-code">temp.revoke();</code></li>
+                          <li><code class="red-code">temp.invoke(8); // Fehlerabbruch!</code></li>
+                      </ul>
+                      </p>
+                      <p>code revocable:</p>
+                      <pre>
+                          <code>
+  function revocable(f) {
+      return {
+          isRevoked: false,
+          invoke(...params) {
+              if (this.isRevoked) {
+                  throw new Error('Die Funktion wurde widerrufen.');
+              }
+              return f(...params);
+          },
+          revoke() {
+              this.isRevoked = true;
+          }
+      };
+  }
+
+  // Beispiel
+  // const temp = revocable(add);
+  // console.log(temp.invoke(4, 5));  result = 9
+  // temp.revoke();
+  // console.log(temp.invoke(4, 8));  Fehler
+                          </code>
+                      </pre>
+                  </div>
+                  <hr>
+                  <div id="7.1.14">
+                      <h3>7.1.14 vector</h3>
+                      <p>
+                          Schreiben Sie ein "Array Wrapper"-Objekt mit den Methoden
+                          <code class="red-code">get</code>, <code class="red-code">store</code> und <code
+                              class="red-code">append</code>,
+                          sodass ein Angreifer keinen Zugriff auf das innere, private Array hat. Also z.B.:
+                      <ul>
+                      <li><code class="red-code">my_vector = vector();</code></li>
+                      <li><code class="red-code">my_vector.append(7);</code></li>
+                      <li><code class="red-code">my_vector.store(1, 8);</code></li>
+                      <li><code class="red-code">my_vector.get(0); // 7</code></li>
+                      <li><code class="red-code">my_vector.get(1); // 8</code></li>
+                      </ul>
+                      </p>
+                      <p>code vector:</p>
+                      <pre>
+                          <code>
+  function vector(){
+      const data = []
+
+      return{
+          append(value){
+              data.push(value);
+          },
+          store(index, value){
+              data[index] = value;
+          },
+          get(index){
+              return data[index];
+          }
+      }
+  }
+
+  //Beispiel
+  // my_vector = vector();
+  // my_vector.append(7);
+  // my_vector.store(1, 8);
+  // console.log(my_vector.get(0)); result = 7
+  // console.log(my_vector.get(1)); result = 8
+                          </code>
+                      </pre>
+                  </div>
+              </div>
+              <hr>
+              <div id="7.2" class="task">
+                  <h2>7.2. Textanalyse mit filter-map-reduce</h2>
+                  <p>
+                      Schreiben Sie in JavaScript eine Textanalyse.
+                      Ermitteln Sie die häufigsten Begriffe im Text <a href="https://kaul.inf.h-brs.de/ccm/we/ws22/resources/assets/Plagiatsresolution.html" target="_blank">Plagiatsresolution</a>.
+                      Filtern Sie dabei alle <a href="https://de.wikipedia.org/wiki/Stoppwort" target="_blank">Stoppworte</a> und HTML-Tags. Reduzieren Sie das Ergebnis auf die 3 häufigsten Begriffe.
+                  </p>
+                  <span id="text-span">
+                      <input id="text-input" type="text" class="custom-input" placeholder="type our text in">
+                      <button id="text-button" class="custom-button">ausführen</button>
+                  </span>
+                  <hr>
+                  <p>code Textanalyse:</p>
+                  <pre>
+                      <code>
+  const text_span = document.getElementById('text-span');
+  const text_input = document.getElementById('text-input');
+  const text_button = document.getElementById('text-button');
+
+  const text_p = document.createElement('p');
+  text_p.classList.add('result');
+  text_span.appendChild(text_p);
+
+  text_button.addEventListener('click', () =>{
+      console.log(textAna(text_input.value));
+      text_p.textContent = JSON.stringify(textAna(text_input.value));
+  })
+
+
+  let stopwords = '...';
+
+  stopwords_arr = stopwords.split('\n');
+
+
+  function textAna(text){
+
+
+  //replace all html tags (regex)
+  text = text.replaceAll(/<\/?[^>]+(>|$)/g, "");
+  //replace all line breaks
+  text = text.replaceAll('\n', '');
+  text = text.replaceAll('.', '');
+  text = text.replaceAll('-', '');
+  text = text.replaceAll(',', '');
+
+
+  text_arr = text.split(' ');
+  text_arr = text_arr.filter(word => word !== '');
+
+  text_arr = text_arr.filter(word => !stopwords_arr.includes(word));
+
+  let words = [];
+
+  text_arr.forEach(word => {
+      if (!words.includes(word)) words.push(word);
+  });
+
+  //all pairs with occurrence
+  let result = [];
+  words.forEach(word => {
+      let counter = 0;
+      let obj = {};
+      for (let w of text_arr) {
+          if (w == word) {
+              counter++;
+          }
+      }
+      obj[word] = counter;
+      result.push(obj);
+  });
+      if(result.length < 4) return result;
+
+      return helper(result);
+  }
+
+  //bestimmt die drei Wörter, die am häufigsten vorkommen
+  function helper(arr) {
+      res = [];
+      let i = 0
+      while (i < 3) {
+
+          const temp = arr.filter(obj =>  !res.includes(obj))
+              .reduce((a, b) => Math.max(a, Object.values(b)[0]), 0);
+
+          res.push(arr.filter(obj => Object.values(obj)[0] === temp)[0]);
+          i++;
+      }
+      return res;
+
+  }
+
+  console.log(textAna('und'));
+
+
+
+
+
+
+
+                      </code>
+                  </pre>
+
+              </div>
+          </div>-->
+        <div id="Async">
+            <h1>Asynchrones JavaScript</h1>
+            <div id="8.1" class="task">
+                <h2>8.1. Promises</h2>
+                <p>
+                    Erstellen Sie auf Ihrem lokalen Server (localhost) zwei Text-Dateien A.txt und B.txt
+                    mit ungefähr gleich vielen Zeilen. Laden Sie mit der fetch-API parallel beide Text-Dateien vom Server.
+                    Geben Sie auf einer Webseite den Inhalt beider Dateien zeilenweise aus, wobei der Anfang der Zeile aus A.txt
+                    und das Ende aus B.txt stammen soll. Die beiden Dateien sollen also zeilenweise konkateniert werden. Erzielen
+                    Sie max. Geschwindigkeit durch maximale Parallelität. Achten Sie gleichzeitig auf Korrektheit. Verwenden Sie dabei
+                    ausschließlich die Promise API ohne async / await.
+                </p>
+            </div>
+
+        </div>
     </main>
+
     <article></article>
 
 
