@@ -1626,6 +1626,221 @@ async_concat_button.addEventListener('click', async ()=>{
                     </code>
                 </pre>
             </div>
+            <hr>
+            <div id="8.3" class="task">
+                <h2>8.3 WWW-Navigator</h2>
+                <p>
+                    Schreiben Sie einen Navigator für die Fachbegriffe des WWW zu den Oberthemen HTML,
+                    CSS und JavaScript. Im Hauptmenü sollen diese 3 Oberthemen zur Auswahl stehen. Im
+                    Untermenü soll eine zugehörige Liste von Fachbegriffen zum jeweiligen ausgewählten
+                    Oberthema stehen. In der Mitte soll eine Dokumentation zum ausgewählten Fachbegriff erscheinen.
+                </p>
+                <p>code html&css:</p>
+              <xmp>
+                  <!DOCTYPE html>
+                  <html lang="en">
+                  <head>
+                      <meta charset="UTF-8">
+                      <title>Title</title>
+                      <script src="www-navigator.js" defer></script>
+                      <style>
+                          body{
+                              box-sizing: border-box;
+                              font-family: Arial,  sans-serif;
+                              display: grid;
+                              grid-template-columns: 1fr 4fr 1fr;
+                              grid-template-rows: 0.5fr 0.5fr 4fr 0.5fr;
+                              grid-template-areas: "header header header"
+                                "nav nav nav"
+                               "aside main article"
+                               "footer footer footer";
+                              height: 100vh;
+                          }
+
+                          header{
+                              background-color: #394352;
+                              grid-area: header;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                          }
+
+                          h1{
+                              color: white;
+                          }
+
+                          nav{
+                              background-color: #394352;
+                              grid-area: nav;
+
+                          }
+
+                          #nav-ul{
+                              display: flex;
+                              align-items: center;
+                              justify-content: space-around;
+                          }
+
+                          #aside-ul{
+                              display: flex;
+                              flex-direction: column ;
+                              justify-content: start;
+                              align-items: center;
+                              height: 100%;
+                              padding-left: 0px;
+                          }
+
+                          ul > li{
+                              display: inline-block;
+                              list-style: none;
+                              padding: 10px 30px;
+                              margin-top: 10px;
+                              background-color: white;
+                              border-radius: 10px;
+
+                          }
+                          li a {
+                              color: #394352;
+                              text-decoration: none;
+                          }
+
+
+                          ul > li:hover{
+                              background-color: #129385;
+                              color: rgba(57, 67, 82, 0.75);
+                          }
+
+                          p{
+                              background-color: aliceblue;
+                              border-color: #394352;
+                              border-radius: 25px;
+                              padding: 10px;
+                              margin-top: 15px;
+                          }
+
+                          aside{
+                              grid-area: aside;
+                          }
+
+                          main{
+                              grid-area: main;
+                          }
+
+                          article{
+                              grid-area: article;
+                          }
+
+                          footer{
+                              background-color: #394352;
+                              grid-area: footer;
+                          }
+                      </style>
+                  </head>
+                  <body>
+                  <header>
+                      <h1>WWW-Navigator</h1>
+                  </header>
+                  <nav>
+                      <ul id="nav-ul">
+
+                      </ul>
+                  </nav>
+                  <aside>
+                      <ul id="aside-ul">
+
+                      </ul>
+                  </aside>
+                  <main>
+                      <p></p>
+                  </main>
+                  <article>
+                      <ul id="article-ul">
+
+                      </ul>
+                  </article>
+                  <footer></footer>
+                  <script>
+                      document.addEventListener('DOMContentLoaded', () => {
+                          fetchContent();
+                      });
+                  </script>
+                  </body>
+                  </html>
+              </xmp>
+                <p>code js:</p>
+                <pre>
+                    <code>
+const nav_ul = document.getElementById('nav-ul');
+const aside_ul = document.getElementById('aside-ul');
+const main = document.querySelector('main p');
+const article_ul = document.getElementById('article-ul')
+let content = {};
+
+
+
+async function fetchContent() {
+    const response = await fetch('www-navigator.json');
+    content = await response.json();
+    let nav_item_id = 1;
+    for (const key in content) {
+        createNavItem(content[key], nav_item_id++, key);
+    }
+
+}
+
+async function createNavItem(obj, id, name) {
+    console.log(name);
+    //create nav item
+    const nav_item = document.createElement('li');
+    nav_item.id = 'nav' + id;
+    nav_item.textContent = name;
+    let item_id = 1;
+
+    nav_item.addEventListener('click', () => {
+        aside_ul.innerHTML = '';
+
+        nav_item.classList.add('active');
+        for (const key in obj) {
+            const id = ''+name+ item_id++;
+            createAsideItem(obj[key], id, key);
+        }
+    })
+
+    nav_ul.appendChild(nav_item);
+}
+
+async function createAsideItem(obj, id, name) {
+
+    //create aside item
+    const aside_item = document.createElement('li');
+    aside_item.id =  id;
+    aside_item.textContent = name;
+
+    aside_item.addEventListener('click', () => {
+        main.textContent = obj['content'];
+        article_ul.innerHTML = '';
+        obj['references'].forEach((ref, index) => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = ref;
+                a.target = '_blank';
+                a.textContent = 'reference_' + index;
+                li.appendChild(a);
+                article_ul.appendChild(li);
+
+            }
+        )
+
+    })
+    aside_ul.appendChild(aside_item);
+
+}
+
+
+                    </code>
+                </pre>
+                <a class="show_solution" href="../tasks/ASYNC/www-navigator.html" target="_blank">Lösung</a>
+            </div>
         </div>
     </main>
 

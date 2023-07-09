@@ -163,3 +163,16 @@ code{
 a:hover{
     color: #d54a4a;
 }
+
+
+
+.show_solution{
+    text-align: center;
+    display: block;
+    background-color: #5e71b9;
+    color: aliceblue;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    text-decoration: none;
+}
