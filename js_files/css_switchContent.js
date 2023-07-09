@@ -1,6 +1,7 @@
 const rwd = document.getElementById('rwd');
 const css = document.getElementById('css');
 
+
 document.querySelectorAll("aside ul li").forEach(li => {
     li.addEventListener('click', () => {
         // Alle Inhalte ausblenden

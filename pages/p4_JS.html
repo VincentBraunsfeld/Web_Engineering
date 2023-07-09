@@ -11,7 +11,8 @@
     <script src="../js_files/hamburger.js" defer></script>
     <script src="../js_files/toggleDiv.js" defer></script>
     <script src="../js_files/scrollToTopBtn.js" defer></script>
-    <!--  <script src="../js_files/content.js" defer></script> -->
+    <script src="../js_files/switchContent.js" defer></script>
+
 
 
     <script src="../tasks/JS/4_1.js" defer></script>
@@ -23,12 +24,15 @@
     <script src="../tasks/ECMAScript/klammerpaare.js" defer></script>
     <script src="../tasks/ECMAScript/TopologischeIterierbarkeit.js" defer></script>
     <script src="../tasks/FUNCTIONAL/textanalyse.js" defer></script>
+    <script src="../tasks/ASYNC/promises.js" defer></script>
+    <script src="../tasks/ASYNC/async-await.js" defer></script>
 
 
 </head>
 <body>
 <header>
-    <div class="logo">vbraun<span style="color:#fa0000">2</span>s</div>
+    <a href="../index.html"><div class="logo">vbraun<span style="color:#fa0000">2</span>s</div></a>
+
 
     <nav class="navigator" id="navi">
         <ul>
@@ -55,10 +59,11 @@
             <li id="dom_content">DOM</li>
             <li id="ecma_content">ECMAScript</li>
             <li id="functional_content">Functional</li>
+            <li id="async_content">Async</li>
         </ul>
     </aside>
     <main>
-        <!--     <div id="JS">
+        <div id="JS" class="page">
                  <h1>JavaScript</h1>
                  <hr>
                  <div id="4.1" class="task">
@@ -464,117 +469,68 @@
                      </pre>
                  </div>
                  <hr>
-                 <div id="4.4" class="task">
-                     <h2>4.4. Topsort</h2>
-                     <p>Bitte fügen sie immer genau ein Tuppel in dem Format <code class="red-code">(wert1,wert2)</code> der
-                         Liste hinzu.</p>
-                     <span>
-                      <input id="input" placeholder="(x,y)" class="custom-input">
-                      <button id="add_btn" class="custom-button">hinzufügen</button>
-                      <button id="delete_btn" class="del-button">löschen</button>
-                  </span>
-                     <br>
-                     <br>
-                     <div id="list" class="result"><code class="red-code">{leer}</code></div>
-                     <br>
-                     <button id="create_btn" class="custom-button">sortieren</button>
-                     <br>
-                     <br>
-                     <div id="result" class="result">[]</div>
-                     <hr>
-                     <pre>
-                     <code>
-                         function topSort(array) {
-         let nodes = {};
+                <div id="4.4" class="task">
+                    <h2>4.4. Topsort</h2>
+                    <p>Schreiben Sie in JavaScript eine Funktion <code class="red-code">topsort()</code>,
+                        die eine topologische Sortierung berechnet.
+                    </p>
+                    <p>code topsort:</p>
+                    <pre>
+                        <code>
+export function topSort(array) {
+    let nodes = {};
 
-         array.forEach(row => row.forEach(col => {     //get all nodes
-             if (!nodes.hasOwnProperty(col)) nodes[col] = [];
-         }));
+    array.forEach(row => row.forEach(col => {     //get all nodes
+        if (!nodes.hasOwnProperty(col)) nodes[col] = [];
+    }));
 
-         Object.keys(nodes).forEach(node => nodes[node] = predecessors(node, array)); // get the list with the predecessor for each node
+    Object.keys(nodes).forEach(node => nodes[node] = predecessors(node, array)); // get the list with the predecessor for each node
 
-         let result = [];
+    let result = [];
 
-         while (Object.keys(nodes).length !== 0) {  // delete node with zero predecessor and push them in a list after delete it from each list
-             Object.keys(nodes).forEach(node => {
-                 if (nodes[node].length === 0) {
-                     result.push(node);
-                     del(node, nodes);
-                     delete nodes[node];
-                 }
-             })
-         }
-         return result;
+    while (Object.keys(nodes).length !== 0) {  // delete node with zero predecessor and push them in a list after delete it from each list
+        Object.keys(nodes).forEach(node => {
+            if (nodes[node].length === 0) {
+                result.push(node);
+                del(node, nodes);
+                delete nodes[node];
+            }
+        })
+    }
+    return result;
 
-     }
+}
 
-     function predecessors(node, array) {
-         let predecessors = [];
-         array.forEach(pair => {
-             if (pair[1] === node && !predecessors.includes(pair[0])) predecessors.push(pair[0]);
-         });
-         return predecessors;
-     }
+export function predecessors(node, array) {
+    let predecessors = [];
+    array.forEach(pair => {
+        if (pair[1] === node && !predecessors.includes(pair[0])) predecessors.push(pair[0]);
+    });
+    return predecessors;
+}
 
-     function del(node, nodes) {  // delete node in all lists
+export function del(node, nodes) {  // delete node in all lists
 
-         Object.keys(nodes).forEach(k => {
-             if (nodes[k].includes(node)) {
-                 nodes[k].splice(nodes[k].indexOf(node), 1);
-             }
-         });
-     }
-
-     let l=[];
-     let list_str = "";
-     const add_btn = document.getElementById("add_btn");
-     const create_btn = document.getElementById("create_btn");
-     const list = document.getElementById("list");
-     const input = document.getElementById("input");
-     const result = document.getElementById("result");
-     const delete_btn = document.getElementById("delete_btn");
-
-
-     add_btn.addEventListener('click', ()=>{
-
-         result.textContent = "";
-         let temp = input.value.split(',');
-         let e1 = temp[0].substring(1,temp[0].length);
-         let e2 = temp[1].substring(0,temp[1].length-1);
-         l.push([e1,e2]);
-         if( list_str.length === 0){
-             list_str = `{(${e1},${e2})}`;
-         }
-         else{
-             list_str = list_str.substring(0,list_str.length-1) + ',' + `(${e1},${e2})` + '}';
-         }
-         list.textContent = list_str;
-         input.value = '';
+    Object.keys(nodes).forEach(k => {
+        if (nodes[k].includes(node)) {
+            nodes[k].splice(nodes[k].indexOf(node), 1);
+        }
+    });
+}
 
 
 
-     });
-
-     create_btn.addEventListener('click', ()=>{
-         result.textContent = "["+topSort(l)+"]";
-     });
-
-     delete_btn.addEventListener('click', ()=>{
-         list_str = "";
-         list.textContent = "{leer}";
-         result.textContent = "";
-         l = [];
-     })
-     /*
-     let x = [["unterhose", "hose"], ["socken", "schuhe"], ["hose", "mantel"], ["unterhemd", "pulli"], ["pulli", "mantel"], ["hose", "schuhe"]];
-     console.log(topSort(x));*/
-                     </code>
-                 </pre>
-                 </div>
+let x = [["unterhose", "hose"], ["socken", "schuhe"], ["hose", "mantel"], ["unterhemd", "pulli"], ["pulli", "mantel"], ["hose", "schuhe"]];
 
 
-             </div>-->
-        <!--<div id="DOM">
+                        </code>
+                    </pre>
+
+                </div>
+
+
+             </div>
+        <div id="DOM" class="page" style="display: none">
             <h1>DOM</h1>
             <div id="5.1" class="task">
                 <h2>5.1. Performanz-Messungen von DOM-Operationen</h2>
@@ -882,8 +838,8 @@ function addRedner(speaker_name) {
                      </code>
                  </pre>
             </div>
-        </div>-->
-        <!--<div id="ECMAScript">
+        </div>
+        <div id="ECMAScript" class="page" style="display: none">
         <h1>ECMAScript</h1>
         <div id="6.1" class="task">
             <h2>6.1. Klammerpaare</h2>
@@ -1069,8 +1025,8 @@ for(const next of studentenLeben.gen()){
             </div>
 
         </div>
-    </div>-->
-        <!--    <div id="functional">
+    </div>
+        <div id="Functional" class="page" style="display: none">
               <h1>Funktional</h1>
               <div id="7.1" class="task">
                   <h2>7.1. Funktionen in JavaScript</h2>
@@ -1352,7 +1308,7 @@ for(const next of studentenLeben.gen()){
       return {
           x,
           dec(){
-              return &#45;&#45;x;
+              return --x;
           },
           inc(){
               return ++x;
@@ -1558,8 +1514,8 @@ for(const next of studentenLeben.gen()){
                   </pre>
 
               </div>
-          </div>-->
-        <div id="Async">
+          </div>
+        <div id="Async" class="page" style="display: none">
             <h1>Asynchrones JavaScript</h1>
             <div id="8.1" class="task">
                 <h2>8.1. Promises</h2>
@@ -1571,8 +1527,105 @@ for(const next of studentenLeben.gen()){
                     Sie max. Geschwindigkeit durch maximale Parallelität. Achten Sie gleichzeitig auf Korrektheit. Verwenden Sie dabei
                     ausschließlich die Promise API ohne async / await.
                 </p>
-            </div>
+                <p>a.txt Inhalt:</p>
+                <p class="result">
+                    Tim
+                    <br>
+                    Lukas
+                    <br>
+                    Tom
+                </p>
+                <p>Ta.txt Inhalt:</p>
+                <p class="result">
+                    lisa
+                    <br>
+                    anna
+                    <br>
+                    tina
+                </p>
+                <button id="promise-concat-button" class="custom-button">konkatenieren</button>
+                <button id="promise-concat-del-button" class="del-button">löschen</button>
+                <p id="promise-concat-p" class="result"></p>
+                <p>code promises:</p>
+                <pre>
+                    <code>
+const promise_concat_button = document.getElementById('promise-concat-button');
+const promise_concat_del_button = document.getElementById('promise-concat-del-button');
+const promise_concat_p = document.getElementById('promise-concat-p');
 
+promise_concat_del_button.addEventListener('click', () => {
+    promise_concat_p.innerText = '';
+})
+
+promise_concat_button.addEventListener('click', () => {
+    Promise.all([
+        fetch('../tasks/ASYNC/a.txt').then(response => response.text()),
+        fetch('../tasks/ASYNC/b.txt').then(response => response.text())
+    ]).then(([a,b]) => {
+        const linesA = a.split('\n');
+        const linesB = b.split('\n');
+        linesA.forEach((lineA, i) => {
+            promise_concat_p.innerText += lineA + linesB[i];
+        });
+    });
+});
+
+                    </code>
+                </pre>
+            </div>
+            <hr>
+            <div id="8.2" class="task">
+                <h2>8.2. async / await</h2>
+                <p>Lösen Sie die letzte Aufgabe mit async / await statt Promise.</p>
+                <p>a.txt Inhalt:</p>
+                <p class="result">
+                    Tim
+                    <br>
+                    Lukas
+                    <br>
+                    Tom
+                </p>
+                <p>Ta.txt Inhalt:</p>
+                <p class="result">
+                    lisa
+                    <br>
+                    anna
+                    <br>
+                    tina
+                </p>
+                <button id="async-concat-button" class="custom-button">konkatenieren</button>
+                <button id="async-concat-del-button" class="del-button">löschen</button>
+                <p id="async-concat-p" class="result"></p>
+                <p>code async/await:</p>
+                <pre>
+                    <code>
+const async_concat_button = document.getElementById('async-concat-button');
+const async_concat_del_button = document.getElementById('async-concat-del-button');
+const async_concat_p = document.getElementById('async-concat-p');
+
+
+async_concat_del_button.addEventListener('click', () => {
+    async_concat_p.innerText = '';
+});
+
+async_concat_button.addEventListener('click', async ()=>{
+    const responseA = await fetch('../tasks/ASYNC/a.txt');
+    const responseB = await fetch('../tasks/ASYNC/b.txt');
+    const a = await responseA.text();
+    const b = await responseB.text();
+    const linesA = a.split('\n');
+    const linesB = b.split('\n');
+
+    linesA.forEach((lineA, i) => {
+        async_concat_p.innerText += lineA + '\n';
+        async_concat_p.innerText += linesB[i]  + '\n';
+    });
+})
+
+
+                    </code>
+                </pre>
+            </div>
         </div>
     </main>
 
