@@ -117,6 +117,7 @@ aside ul li{
 }
 
 aside ul li:hover{
+    font-size: 1.1rem;
     cursor: pointer;
     background-color: #296fdc;
     color: white;
