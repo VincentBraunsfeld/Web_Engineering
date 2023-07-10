@@ -24,4 +24,4 @@ let p2_cars = [new Car("VW", 4), new Car("Fort", 5), equal_car];
 let p1 = new Person("Peter", p1_cars);
 let p2 = new Person("Lea", p2_cars);
 let persons = [p1, p2];
-console.log(conflict(persons));
+console.log(conflict(persons, equal_car));

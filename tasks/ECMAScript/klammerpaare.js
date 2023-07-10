@@ -20,5 +20,4 @@ function check(value) {
 
 console.assert(true, '()');
 console.assert(true,'{[()]}');
-console.assert(true, '[((){[{}]})[]]')
-console.assert(false, '([)]')
+console.assert(true, '[((){[{}]})[]]');

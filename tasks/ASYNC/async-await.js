@@ -8,16 +8,21 @@ async_concat_del_button.addEventListener('click', () => {
 });
 
 async_concat_button.addEventListener('click', async ()=>{
-    const responseA = await fetch('../tasks/ASYNC/a.txt');
-    const responseB = await fetch('../tasks/ASYNC/b.txt');
-    const a = await responseA.text();
-    const b = await responseB.text();
-    const linesA = a.split('\n');
-    const linesB = b.split('\n');
+    try {
+        const responseA = await fetch('../tasks/ASYNC/a.txt');
+        const responseB = await fetch('../tasks/ASYNC/b.txt');
+        const a = await responseA.text();
+        const b = await responseB.text();
+        const linesA = a.split('\n');
+        const linesB = b.split('\n');
 
-    linesA.forEach((lineA, i) => {
-        async_concat_p.innerText += lineA + '\n';
-        async_concat_p.innerText += linesB[i]  + '\n';
-    });
+        linesA.forEach((lineA, i) => {
+            async_concat_p.innerText += lineA + '\n';
+            async_concat_p.innerText += linesB[i] + '\n';
+        });
+    }
+    catch (error){
+        throw new Error(error);
+    }
 })
 

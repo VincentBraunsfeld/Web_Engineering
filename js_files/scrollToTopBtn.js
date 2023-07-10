@@ -5,7 +5,7 @@ function scrollToTop() {
     });
 }
 
-// Funktion zum Überprüfen des Scroll-Offsets und Anzeigen/Verstecken des Buttons
+
 function handleScroll() {
     var scrollToTopBtn = document.getElementById("scrollToTopBtn");
     if (window.pageYOffset > 200) {
@@ -15,5 +15,5 @@ function handleScroll() {
     }
 }
 
-// Event-Listener für das Scroll-Ereignis hinzufügen
+
 window.addEventListener("scroll", handleScroll);
